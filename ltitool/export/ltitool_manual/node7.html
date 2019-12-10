@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Impulse response</TITLE>
+<META NAME="description" CONTENT="Impulse response">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html199"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html193"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html187"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html195"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html197"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html200"
+  HREF="node8.html">Step response</A>
+<B> Up:</B> <A NAME="tex2html194"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html188"
+  HREF="node6.html">Open Loop LTI Systems</A>
+ &nbsp; <B>  <A NAME="tex2html196"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html198"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00410000000000000000"></A><A NAME="273"></A>
+<BR>
+Impulse response
+</H1>
+
+<P>
+Impulse response <A NAME="274"></A> is the system dynamic response subjected to the input signal equal to a Dicrac delta input (denote as <SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$\delta(t)$"></SPAN>).
+
+<P>
+Thus, being the temporary expression of an unit impulse <!-- MATH
+ $u(t) = \delta(t)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="78" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$u(t) = \delta(t)$"></SPAN>, its Laplace transform results <!-- MATH
+ $U(s) = \mathscr{L}[u(t)] = \mathscr{L}[\delta(t)] = 1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="212" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$U(s) = \mathscr{L}[u(t)] = \mathscr{L}[\delta(t)] = 1$"></SPAN> then,  <SPAN  CLASS="textit">Y</SPAN>(<SPAN  CLASS="textit">s</SPAN>) = <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>) and the dynamic LTI system response is,
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+y(t) = \mathscr{L}^{-1}[G(s)] ~~\mbox{.}
+\end{equation}
+ -->
+<A NAME="Eq06_chp_trans"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="Eq06_chp_trans"></A><IMG
+ WIDTH="134" HEIGHT="38" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{displaymath}
+y(t) = \mathscr{L}^{-1}[G(s)] ~~\mbox{.}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+In conclusion, <SPAN  CLASS="textit">the impulse response of a linear system is equal to the inverse transformation of its plant transfer function.</SPAN>
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Example 1</SPAN> <A NAME="ejem01_gla_oct"></A>
+<P>
+Consider a linear system whose transfer function is,
+	<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+G(s)=\frac{(s+1)}{s^2+ 0.5 s +1}
+\end{equation}
+ -->
+<A NAME="eqn_Gs_ejem01"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eqn_Gs_ejem01"></A><IMG
+ WIDTH="146" HEIGHT="51" BORDER="0"
+ SRC="img8.png"
+ ALT="\begin{displaymath}
+G(s)=\frac{(s+1)}{s^2+ 0.5 s +1}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+subject to a Dirac Delta input. We pretend to obtain the dynamic system response  subject to such excitation.
+
+<P>
+<BR>
+<BR>
+To do this, before carrying out a simulation, we will make a study based on the transfer function of the system.
+
+<P>
+<BR>
+<BR>
+	
+<OL>
+<LI><SPAN  CLASS="textbf">Stability:</SPAN> It is possible to determine this based on the poles of the system transfer function, in this case under open loop. To do this, using Octave, you can determine these poles using the following commands:
+
+<P>
+<BR>
+<BR>
+		
+<P>
+<PRE>
+		% System transfer function
+		s=tf('s');
+		Gs=(s+1)/(s^2+0.5*s+1);
+		
+		% Poles and Zeros
+		polesGs=roots(Gs.den{1,1})
+</PRE>
+
+<P>
+<BR>
+<BR>
+La respuesta en la ventana de comandos de Octave es:
+		<PRE>
+		polesGs =
+		
+		-0.25000 + 0.96825 i
+		-0.25000 - 0.96825 i
+</PRE>
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Initial and Final Value:</SPAN> These values can be determined by the initial (IVT) and final (FVT) values theorems.
+
+<P>
+<BR>
+<BR>
+Taking into account the following remark:
+
+<P>
+<BR>
+<A NAME="rem01_chp_trans"></A><IMG
+ WIDTH="459" HEIGHT="59" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="\begin{remark}
+\begin{remarca}
+The initial value ($t = 0^+$) of the impulse re...
+...mo}
+See Adam's textbook \cite{Adam2018}, among others.
+\end{demo} \end{remark}">
+<BR>
+
+<P>
+Where it is denoted as <SPAN  CLASS="textit">n</SPAN> the denominator polynomial order and <SPAN  CLASS="textit">m</SPAN> that corresponding to the numerator.
+
+<P>
+<BR>
+<BR>
+According to IVT,
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray*}
+y(0^{+}) &=& \lim _{s \to \infty } sG(s)U(s)\\
+			&=& \lim _{s \to \infty } s \frac{(s+1)}{\left ( s^2 + 0.5 s + 1 \right ) } 1\\
+			&=& 0  ~~\mbox{.}
+\end{eqnarray*}
+ -->
+<IMG
+ WIDTH="237" HEIGHT="96" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{eqnarray*}
+y(0^{+}) &amp;=&amp; \lim _{s \to \infty } sG(s)U(s)\\
+&amp;=&amp; \lim _{s...
+...s+1)}{\left ( s^2 + 0.5 s + 1 \right ) } 1\\
+&amp;=&amp; 0 ~~\mbox{.}
+\end{eqnarray*}"></DIV>
+<BR CLEAR="ALL"><P></P>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<BR>
+<BR>
+
+<P>
+<BR>
+<A NAME="rem02_chp_trans"></A><IMG
+ WIDTH="459" HEIGHT="58" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="\begin{remark}
+\begin{remarca}
+The final value ($t \to \infty$) of the impulse...
+...mo}
+See Adam's textbook \cite{Adam2018}, among others.
+\end{demo} \end{remark}">
+<BR>
+
+<P>
+According to FVT,
+
+<P>
+<IMG
+ WIDTH="444" HEIGHT="51" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="\begin{equation*}
+y(\infty)= \lim _{s \to 0} s Y(s) = \lim _{s \to 0} s G(s)U(s) = \lim _{s \to 0} s \frac{(s+1)}{s^2+0.5 s+1}1=0
+~~\mbox{.}
+\end{equation*}">
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Impulse Response:</SPAN> With the previously information it is possible to predict the system dynamic behavior. For this particular case, we can predict that the system leaves zero (through the IVT) and returns to zero (through the FVT). In addition, it will oscillate around the final value since such system has two complex conjugate roots, according to previous calculations.
+
+<P>
+Also, using the <TT>impulse</TT>  Octave command you can determine the dynamic open-loop response of the system for a Dirac delta input, as indicated below.
+
+<P>
+<PRE>
+		% System transfer function
+		s=tf('s');
+		Gs=(s+1)/(s^2+0.5 s+1);
+		
+		% Impulse response
+		impulse(Gs)
+</PRE>
+		obtaining the following graph:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_la_fig02_impulse"></A><A NAME="495"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.2:</STRONG>
+System impulse response (<A HREF="#eqn_Gs_ejem01">3.4</A>).</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>			<IMG
+  WIDTH="660" HEIGHT="496" ALIGN="BOTTOM" BORDER="0"
+ SRC="./impulseGs_ltitool.png"
+ ALT="Image impulseGs_ltitool"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html199"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html193"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html187"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html195"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html197"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html200"
+  HREF="node8.html">Step response</A>
+<B> Up:</B> <A NAME="tex2html194"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html188"
+  HREF="node6.html">Open Loop LTI Systems</A>
+ &nbsp; <B>  <A NAME="tex2html196"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html198"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

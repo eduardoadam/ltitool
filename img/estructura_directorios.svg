@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="estructura_directorios.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path867"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.5273438"
+     inkscape:cx="166.46288"
+     inkscape:cy="329.32663"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="863"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;text-anchor:middle;text-align:center;"
+       x="92.005257"
+       y="47.535713"
+       id="text817"><tspan
+         sodipodi:role="line"
+         id="tspan815"
+         x="33.261906"
+         y="47.535713"
+         style="stroke-width:0.26458332;text-anchor:middle;text-align:center;">Estructura de Directorio </tspan><tspan
+         sodipodi:role="line"
+         x="33.261906"
+         y="59.882935"
+         style="stroke-width:0.26458332;text-anchor:middle;text-align:center;"
+         id="tspan819">LTITOOL</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555529;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect821"
+       width="35.944138"
+       height="22.424925"
+       x="77.307289"
+       y="78.008705" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="81.248863"
+       y="92.903633"
+       id="text833"><tspan
+         sodipodi:role="line"
+         id="tspan831"
+         x="81.248863"
+         y="92.903633"
+         style="stroke-width:0.26458332">ltitool</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="153.61317"
+       y="87.743225"
+       id="text837"><tspan
+         sodipodi:role="line"
+         x="153.61317"
+         y="87.743225"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan843">Directorio principal del toolbox</tspan><tspan
+         sodipodi:role="line"
+         x="153.61317"
+         y="93.034889"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan845">(runApp.m)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 26.646444,155.87259 H 171.51005"
+       id="path829"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 96.227012,100.9583 v 15.22654"
+       id="path833"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 26.646444,155.87259 v 15.22654"
+       id="path833-3"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g931"
+       transform="translate(0,39.687519)">
+      <rect
+         y="131.40733"
+         x="7.405498"
+         height="22.424925"
+         width="35.944138"
+         id="rect821-6"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555535;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text833-7"
+         y="145.34486"
+         x="18.041582"
+         style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="145.34486"
+           x="18.041582"
+           id="tspan831-5"
+           sodipodi:role="line">gol</tspan></text>
+    </g>
+    <g
+       id="g936"
+       transform="translate(0,39.687519)">
+      <rect
+         y="131.40733"
+         x="51.604759"
+         height="22.424925"
+         width="35.944138"
+         id="rect821-6-3"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555541;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text833-7-5"
+         y="145.34486"
+         x="62.539875"
+         style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="145.34486"
+           x="62.539875"
+           id="tspan831-5-6"
+           sodipodi:role="line">gcl</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 69.576828,155.87259 v 15.22654"
+       id="path833-2"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g941"
+       transform="translate(15.755236,40.744918)">
+      <rect
+         y="130.13846"
+         x="103.20581"
+         height="22.424925"
+         width="35.944138"
+         id="rect821-6-3-9"
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555547;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text833-7-5-1"
+         y="144.07599"
+         x="114.14092"
+         style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="144.07599"
+           x="114.14092"
+           id="tspan831-5-6-2"
+           sodipodi:role="line">eca</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 136.93311,155.65707 v 15.22654"
+       id="path833-2-7"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="94.742905"
+       y="183.18181"
+       id="text960"><tspan
+         sodipodi:role="line"
+         id="tspan958"
+         x="94.742905"
+         y="183.18181"
+         style="font-size:14.11111069px;stroke-width:0.26458332">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="163.30142"
+       y="182.97034"
+       id="text960-0"><tspan
+         sodipodi:role="line"
+         id="tspan958-9"
+         x="163.30142"
+         y="182.97034"
+         style="font-size:14.11111069px;stroke-width:0.26458332">...</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 136.93311,193.3045 v 15.22654"
+       id="path833-2-7-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 106.69152,209.37695 h 60.48319"
+       id="path829-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 106.69152,209.37695 v 15.22654"
+       id="path833-2-7-0"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 167.17471,209.37695 v 15.22654"
+       id="path833-2-7-6"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555547;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect821-6-3-9-6"
+       width="35.944138"
+       height="22.424925"
+       x="88.825188"
+       y="225.23312" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="103.18713"
+       y="240.19798"
+       id="text833-7-5-1-1"><tspan
+         sodipodi:role="line"
+         id="tspan831-5-6-2-8"
+         x="103.18713"
+         y="240.19798"
+         style="stroke-width:0.26458332">ff</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.61555547;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect821-6-3-9-6-7"
+       width="35.944138"
+       height="22.424925"
+       x="149.51988"
+       y="225.44461" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="159.09247"
+       y="240.33954"
+       id="text833-7-5-1-1-9"><tspan
+         sodipodi:role="line"
+         id="tspan831-5-6-2-8-2"
+         x="159.09247"
+         y="240.33954"
+         style="stroke-width:0.26458332">ccd</tspan></text>
+    <g
+       id="g1109">
+      <rect
+         style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.616;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect821-0"
+         width="42.437916"
+         height="22.372412"
+         x="75.481796"
+         y="117.03335" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:9.8777771px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="77.871246"
+         y="131.11343"
+         id="text833-2"><tspan
+           sodipodi:role="line"
+           id="tspan831-3"
+           x="77.871246"
+           y="131.11343"
+           style="stroke-width:0.26458332">@ltitool</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 96.700754,139.67591 v 15.22654"
+       id="path833-7"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="137.90285"
+       y="129.79774"
+       id="text837-5"><tspan
+         sodipodi:role="line"
+         x="137.90285"
+         y="129.79774"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan845-2">ltitool.m</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 9.5250001,218.68333 25.929166,189.57917"
+       id="path862"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="17.033323"
+       y="223.50197"
+       id="text837-5-3"><tspan
+         sodipodi:role="line"
+         x="17.033323"
+         y="223.50197"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan845-2-6">golwindow.m</tspan></text>
+    <ellipse
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path1220"
+       cx="17.325914"
+       cy="222.3049"
+       rx="16.109678"
+       ry="4.4892774" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="0.83750635"
+       y="231.15105"
+       id="text1224"><tspan
+         sodipodi:role="line"
+         id="tspan1222"
+         x="0.83750635"
+         y="231.15105"
+         style="stroke-width:0.26458332">Quiero poner adentro del directorio</tspan><tspan
+         sodipodi:role="line"
+         x="0.83750635"
+         y="236.44272"
+         style="stroke-width:0.26458332"
+         id="tspan1226">gol o (@gol, no se bien esto), </tspan><tspan
+         sodipodi:role="line"
+         x="0.83750635"
+         y="241.73438"
+         style="stroke-width:0.26458332"
+         id="tspan1228">un archivo que se llame golwindow.m</tspan></text>
+  </g>
+</svg>

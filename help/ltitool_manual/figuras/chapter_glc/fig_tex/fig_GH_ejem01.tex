@@ -1,0 +1,38 @@
+\documentclass[tikz,border=5pt]{standalone}
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+%    FIGURA SP DEL Capitulo ECA
+%
+% Luego separar las figuras en archivos usando el comando:
+%
+% pdftk figecaSP.pdf burst
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{ucs}
+\usepackage[spanish,activeacute]{babel}
+\usetikzlibrary{positioning}
+
+% % % % % % % % % % % % % % % % % % %
+%ACTIVAR CUANDO SE NECESITE HACER DB
+\usepackage{schemabloc}
+\usepackage{blox}
+\usepackage{tcolorbox}
+% % % % % % % % % % % % % % % % % % %
+
+
+\begin{document}	
+		\begin{tikzpicture}
+		\bXInput{R}
+		\bXCompSum*{Sumador}{R}{}{-}{}{}
+		\bXLink[$R(s)$]{R}{Sumador}
+		\bXBloc[2]{Controlador}{$K_r \left(1+\frac{1}{5s}\right) $}{Sumador}
+		\bXLink[]{Sumador}{Controlador}
+		\bXBloc[2]{Gp}{$\frac{2}{(5s+1)(s^2+s+1)}$}{Controlador}
+		\bXLink[]{Controlador}{Gp}
+		\bXOutput[4]{Y}{Gp}
+		\bXLink{Gp}{Y}\bXLinkName[.6]{Y}{$Y(s)$}
+		\bXReturn{Gp-Y}{Sumador}{}
+		\end{tikzpicture}
+\end{document}

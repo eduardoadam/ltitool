@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="aCSWnd" Position="[0 210 694 558]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+%
+% Main window of traditional advanced control strategies 
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Main window image
+axes(aCSWnd.Image_ACS);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'acs.png']);
+refresh();
+
+% Clear el command Window
+clc
+
+%
+refresh();
+
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_titulo" Position="[140 10 461 24]" String="Traditional Avanced Control Strategies" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeACS" Position="[567 495 90 22]" String="Close" TooltipString="">
+  % Close window
+  close(aCSWnd.figure);
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnHelp" Position="[451 495 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node16.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_ACS" Position="[106 62 551 416]"/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runFFwindow" Position="[12 95 238 22]" String="Feedforward-Feedback Control" TooltipString="">
+%
+% Run ventan feedforward-feedback window
+%
+
+ffWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runCDC" Position="[12 285 166 22]" String="Cascade Control" TooltipString="">
+%
+% Run Cascade Control
+%
+
+cdCWnd();
+</uiControl>
+</dialog>

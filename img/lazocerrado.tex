@@ -1,0 +1,63 @@
+\documentclass[tikz,border=5pt]{standalone}
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+%    FIGURA C16 DEL APENDICE DE DIAGRAMA DE BLOQUES
+%
+% Luego separar las figuras en archivos usando el comando:
+%
+% pdftk figc16.pdf burst
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{ucs}
+\usepackage[spanish,activeacute]{babel}
+\usetikzlibrary{positioning}
+
+% % % % % % % % % % % % % % % % % % %
+%ACTIVAR CUANDO SE NECESITE HACER DB
+\usepackage{schemabloc}
+\usepackage{blox}
+\usepackage{tcolorbox}
+% % % % % % % % % % % % % % % % % % %
+
+
+\begin{document}
+\begin{tikzpicture}
+	\bXInput{entradaR}
+	\bXBloc{bloqueGt}{$K_m$}{entradaR}
+	\bXLink{entradaR}{bloqueGt} \bXLinkName[0.6]{entradaR}{$R(s)$}
+	\bXCompSum*[5]{compara}{bloqueGt}{}{-}{}{}
+	\bXLink[$R_t(s)$]{bloqueGt}{compara}
+	%cadena GH
+	\bXBloc[3]{bloqueC}{$C(s)$}{compara}
+	\bXLink[$E_a(s)$]{compara}{bloqueC}
+	\bXBloc[3]{bloqueGv}{$G_v(s)$}{bloqueC}
+	\bXLink[$Y_r(s)$]{bloqueC}{bloqueGv}
+	\bXBloc[3]{bloqueGp}{$G_p(s)$}{bloqueGv}
+	\bXLink[$U(s)$]{bloqueGv}{bloqueGp}
+	%entrada L
+	\bXCompSum*{sumaL}{bloqueGp}{}{}{}{}
+	\bXLink{bloqueGp}{sumaL}
+	\bXInput{entradaL}
+	\bXBranchy[-4]{bloqueGv}{entra_l} %arriba y al medio de Gv-Gp crea un nodo con nombre entra_l
+	\bXBloc[4.5]{bloqueGl}{$G_l(s)$}{entra_l}
+	\bXLink[$L(s)$]{entra_l}{bloqueGl}
+	\bXLinkxy{bloqueGl}{sumaL}
+	\bXOutput[2.5]{salida_y}{sumaL}
+	\bXLink{sumaL}{salida_y} \bXLinkName[0.6]{salida_y}{$Y(s)$}
+	%Cadena de Retorno
+	\bXBranchy[5]{sumaL-salida_y}{retorna_y}
+	\bXCompSum*[0]{sumaRuido}{retorna_y}{}{}{}{}
+	\bXBranchy[0.35]{sumaL-salida_y}{sale_y}
+	\bXLinkxy{sale_y}{sumaRuido}
+	\bXBranchx[3]{sumaRuido}{N}
+	\bXLink{N}{sumaRuido} \bXLinkName[0.6]{N}{$N(s)$}
+	\bXBloc[-15]{bloqueGm}{$Gm(s)$}{sumaRuido}
+	\bXLink{sumaRuido}{bloqueGm}
+	\bXLinkxy[$Y_m(s)$]{bloqueGm}{compara}
+	%Armo un rectángulo y escribo la palabra Planta
+	\draw [dashed] (11.4,-1)--(11.4,2.3)--(8.45,2.3)--(8.45,-1)--(11.4,-1);
+	\draw (10.9,2.3) node[align=left, above]{Planta};
+\end{tikzpicture}
+\end{document}

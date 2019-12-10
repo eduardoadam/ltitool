@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="ffAnalysisWnd" Position="[0 67 1197 701]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>%
+% The source code writed here will be executed when
+% windows load. Work like 'onLoad' event of other languages.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+%
+clc
+
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="analisisFF" Position="[350 10 488 20]" String="Analysis Tools for Feedback Systems" TooltipString="">
+%pkg load control;
+%pkg load linear-algebra;
+%pkg load odepkg;
+%pkg load optim;
+%pkg load signal;
+%pkg load struct;
+%pkg load symbolic;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeFFanalysis" Position="[1067 635 90 22]" String="Close" TooltipString="">
+% Close window
+close(ffAnalysisWnd.figure);
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_RLanalysis" Position="[40 275 137 23]" String="Root Locus" TooltipString="">%
+% Plot root locus 
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% ----------------------------------
+% Plot  root locus
+% ----------------------------------
+axes(ffAnalysisWnd.ImageLR);
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHrlocusplot(GH.num{1,1},GH.den{1,1},Kr,1000);
+hold off
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Bodeanalysis" Position="[425 275 137 23]" String="Bode" TooltipString="">
+%
+% Plot Bode diagram
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% Plot Bode diagram
+% ----------------------------------
+axes(ffAnalysisWnd.ImageBodeMag);
+delay=0;
+flagMagPha='gragicoMag';
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=bodeplotMagPha(GH.num{1,1},GH.den{1,1},delay,Kr,flagMagPha);
+hold off
+axes(ffAnalysisWnd.ImageBodePha);
+flagMagPha='gragicoPha';
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=bodeplotMagPha(GH.num{1,1},GH.den{1,1},delay,Kr,flagMagPha);
+hold off
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Nyquistanalisis" Position="[805 275 136 23]" String="Nyquist" TooltipString="">
+%
+% Plot Nyquist diagram
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% Plot Nyquist diagram
+% ----------------------------------
+axes(ffAnalysisWnd.ImageNyq);
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHnyquistplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+hold off
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_2" Position="[40 245 279 17]" String="Analysis Based on G(s)H(s)" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_3" Position="[40 75 228 17]" String="Poles-Zeros Maps" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="mapa_GH_GLC" Position="[40 110 243 22]" String="Poles-Zeros of G(s)H(s)" TooltipString="">%
+% Poles-zeros map of open loop transfer funcion G(s)H(s)
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% ----------------------------------
+% Poles-zeros map of G(s)H(s)
+% ----------------------------------
+title_string='Poles-Zeros Map of G(s)H(s)';
+legend_ceros_string='Zeros of G(s)H(s)';
+legend_polos_string='Poles of G(s)H(s)';
+
+% Plot poles-zeros map
+% ----------------------------------
+axes(ffAnalysisWnd.ImageZPGH);
+xpzmap(title_string,legend_ceros_string,legend_polos_string,GH.num{1,1},GH.den{1,1});
+figuraGH=1;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="mapa_Glc_GLC" Position="[40 150 239 22]" String="Poles-Zeros of Closed Loop" TooltipString="">%
+% Poles-zeros map of closed loop transfer funcion Gcl(s)
+%
+
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% Closed loop transfer function
+Gcl = minreal(GH/(1+GH));
+
+% ----------------------------------
+% Poles-zeros map of Gcl(s)
+% ----------------------------------
+title_string='Poles-Zeros Map of Gcl(s)';
+legend_ceros_string='Zeros of Gcl(s)';
+legend_polos_string='Poles of Gcl(s)';
+
+
+% Plot poles-zeros map
+% ----------------------------------
+axes(ffAnalysisWnd.ImageZPGLC);
+xpzmap(title_string,legend_ceros_string,legend_polos_string,Gcl.num{1,1},Gcl.den{1,1});
+figuraGH=2;
+
+
+%
+refresh();
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageZPGH" Position="[425 73 301 144]">   disp('Image_2');
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageLR" Position="[40 340 298 259]"/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageBodeMag" Position="[425 340 305 94]"/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageBodePha" Position="[425 505 304 92]"/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageNyq" Position="[810 340 305 260]"/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_LRplus" Position="[340 335 42 22]" String="+" TooltipString="">
+%
+% Plot root locus 
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% Plot root locus 
+% ----------------------------------
+figure
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHrlocusplot(GH.num{1,1},GH.den{1,1},Kr,1000);
+axisx=xlabel('Real G(s)H(s)'); axisy=ylabel('Imag. G(s)H(s)');
+set(axisx,'fontsize',14);  
+set(axisy,'fontsize',14);
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Bodeplus" Position="[730 335 43 22]" String="+" TooltipString="">
+%
+% Plot Bode diagram
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+% Plot Bode diagram
+% ----------------------------------
+figure();
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHbodeplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+ 
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Nyqplus" Position="[1115 335 42 22]" String="+" TooltipString="">
+%
+% Plot Nyquist diagram
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFdata'])
+
+
+% Plot Nyquist diagram
+% ----------------------------------
+figure
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHnyquistplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="ImageZPGLC" Position="[815 70 302 149]"/>
+</dialog>

@@ -1,0 +1,109 @@
+\documentclass{book}
+
+\usepackage{tesis_estilo}
+
+
+\usepackage{graphicx}
+
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+	\titlepage		% saco el número de página de la carátula
+	\hbox{ % Horizontal box
+		\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+		\rule{1pt}{\textheight} % Vertical line
+		\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+		\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+			
+			{\noindent\Huge\bfseries LTITOOL \\}\\[2\baselineskip] % Title
+%			\begin{center}
+				\includegraphics[scale=0.3]{./figuras/logos/logo_ltitool.png}
+%			\end{center}
+			
+			
+			{\large \textit{\\ LTI Control System Toolbox}}\\[4\baselineskip] % Tagline or further description
+			{\large \textsc{ Eduardo J. Adam }} % Author name
+			
+			\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+			{\noindent \textsc{A\~{n}o:} \Year }\\[\baselineskip] % Publisher and logo
+	}
+	
+    }
+	\input{reconocimientos}.
+	\endgroup}
+
+
+% ------------
+% New commands
+% ------------
+\def\Year{\expandafter\YEAR\the\year}
+%\def\YEAR#1#2#3#4{#3#4}
+\def\YEAR#1#2#3#4{#1#2#3#4}
+
+% ----------------
+% ---- macros ----
+% ----------------
+
+
+
+
+
+
+\begin{document}
+\frontmatter
+%\renewcommand{\tablename}{Tabla}
+%\renewcommand{\listtablename}{Indice de tablas}
+%\renewcommand\contentsname{Contenido}
+%-----------------------------------------------------------------------
+%Aqui va la carátula según reglamento de Maestría y Doctorado en Ingeniería Química y Tecnología Química
+%-------------------------------------------------
+%\titleGM	% Esta es la carátula definida arriba
+%-------------------------------------------------
+\input{caratula}
+\tableofcontents
+
+%-----------------------------------------------------------------------
+\mainmatter
+%A partir de aquí aparecen todos los capítulos numerados en el índice.
+\include{chapter_intro}				% INTRODUCCION
+\include{chapter_install}			% Instalación
+\include{chapter_la}				% Sistemas a Lazo Abierto
+\include{chapter_lc}				% Sistemas a Lazo Cerrado
+\include{chapter_eca}				% Estrategias de Control Avanzadas
+\include{chapter_additool}			% Estrategias de Control Avanzadas
+
+
+
+\appendix
+%A partir de aquí van los apéndices y aparecen todos numerados en el índice.
+%\include{appendixA}
+%\include{appendixB}
+
+%-----------------------------------------------------------------------
+
+
+\pagestyle{fancy} 
+\fancyhf{} 
+\fancyhead{} % Cabecera vacia
+\fancyfoot{} %Pie vacio
+\renewcommand{\headrulewidth}{0pt}
+
+\printindex % aquí se imprime el índice alfabético
+
+%-----------------------------------------------------------------------
+
+
+\bibliographystyle{plain}
+%\bibliographystyle{alpha}
+\bibliography{book_references}
+
+%\begin{thebibliography}{a}
+%	\bibitem{Adam2018} 
+%		\textsc{E. J. Adam},
+%		\textit{Instrumentaci\'on y Control de Procesos. Notas de Clase.},
+%		3rd. Ediciones UNL, ISBN 978-987-749-122-7,
+%		2018.
+%		%bibitem{Dan} \textsc{Dantzig, G.B.} y \textsc{P. Wolfe},<<Decomposition principle for linear programs>>,\textit{Operations Research}, \textbf{8}, págs. 101--111, 1960
+%\end{thebibliography}
+
+\end{document}
+

@@ -1,0 +1,26 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Installation Mode}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Installing for the First Time}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Updating the Version}{3}{section.2.2}
+\contentsline {chapter}{\numberline {3}Open Loop LTI Systems}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Impulse response}{6}{section.3.1}
+\contentsline {section}{\numberline {3.2}Step response}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Tool Developed for Open Loop Systems}{10}{section.3.3}
+\contentsline {section}{\numberline {3.4}Conclusions}{13}{section.3.4}
+\contentsline {chapter}{\numberline {4}Closed Loop LTI Systems}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}Tools for Feedback LTI Systems}{19}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Analysis and Simulation Based on \textit {G}(\textit {s})\textit {H}(\textit {s})}{19}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Analysis and Simulation of Feedback System}{23}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Conclusions}{28}{section.4.2}
+\contentsline {chapter}{\numberline {5}Traditional Advanced Control Strategies}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Feedforward-Feedback Control}{29}{section.5.1}
+\contentsline {section}{\numberline {5.2}Cascade Control}{30}{section.5.2}
+\contentsline {section}{\numberline {5.3}Tools for Traditional Advanced Control Strategies}{31}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Analysis and Simulation of a Feedforward-Feedback Control System}{31}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Analysis and Simulation of a Cascade Control System}{35}{subsection.5.3.2}
+\contentsline {section}{\numberline {5.4}Conclusions}{38}{section.5.4}
+\contentsline {chapter}{\numberline {6}Additional Tools for LTI System Control}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}Optimal Setting of PID Controller}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Developed Additional Tools}{39}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}PID Optimal Controller Setting}{39}{subsection.6.2.1}

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Open Loop LTI Systems</TITLE>
+<META NAME="description" CONTENT="Open Loop LTI Systems">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node11.html">
+<LINK REL="previous" HREF="node3.html">
+<LINK REL="up" HREF="ltitool_manual.html">
+<LINK REL="next" HREF="node7.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html181"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html175"
+  HREF="ltitool_manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html169"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html177"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html179"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html182"
+  HREF="node7.html">Impulse response</A>
+<B> Up:</B> <A NAME="tex2html176"
+  HREF="ltitool_manual.html">ltitool_manual</A>
+<B> Previous:</B> <A NAME="tex2html170"
+  HREF="node5.html">Updating the Version</A>
+ &nbsp; <B>  <A NAME="tex2html178"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html180"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00400000000000000000"></A> <A NAME="LA_chapter"></A>
+<BR>
+Open Loop LTI Systems
+</H1>
+
+<P>
+The transient response analysis carried out in this chapter is based on using a representation with  transfer functions of the system output according to his input. The use of this particular representation is more intuitive for the process engineer, since it consists of a simple input-output representation, where if it take into account that for its study the input has been set a priori, the transient output can predicted immediately from the analysis of the system transfer function.
+
+<P>
+<BR>
+<BR>
+To do this, consider the open loop system of the Fig. <A HREF="#chp_la_fig01_la">3.1</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_la_fig01_la"></A><A NAME="247"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.1:</STRONG>
+Open loop LTI system</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="605" HEIGHT="171" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig_la.png"
+ ALT="Image fig_la"></TD></TR>
+</TABLE>
+</DIV>
+where <SPAN  CLASS="textit">Y</SPAN>(<SPAN  CLASS="textit">s</SPAN>) = <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">U</SPAN>(<SPAN  CLASS="textit">s</SPAN>) with <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>) a polynomial ratio written as,
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+G(s)=\frac{b_m s^m \dots b_1 s + b_0}{s^n+a_1s^{n-1}+\dot a_{n-1}s^1 + a_n}
+\end{equation}
+ -->
+<A NAME="eqn01_chp_la"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eqn01_chp_la"></A><IMG
+ WIDTH="244" HEIGHT="54" BORDER="0"
+ SRC="img2.png"
+ ALT="\begin{displaymath}
+G(s)=\frac{b_m s^m \dots b_1 s + b_0}{s^n+a_1s^{n-1}+\dot a_{n-1}s^1 + a_n}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+Note that the dynamic response turns out to be,
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+y(t)= \mathscr{L}^{-1} \left[ \frac{b_m s^m \dots b_1 s + b_0}{s^n+a_1s^{n-1}+\dot a_{n-1}s^1 + a_n} U(s)\right]
+\end{equation}
+ -->
+<A NAME="eqn02_chp_la"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eqn02_chp_la"></A><IMG
+ WIDTH="322" HEIGHT="54" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}
+y(t)= \mathscr{L}^{-1} \left[ \frac{b_m s^m \dots b_1 s + b_0}{s^n+a_1s^{n-1}+\dot a_{n-1}s^1 + a_n} U(s)\right]
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+where the available inputs in this application are step and impulse.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html183"
+  HREF="node7.html">Impulse response</A>
+<LI><A NAME="tex2html184"
+  HREF="node8.html">Step response</A>
+<LI><A NAME="tex2html185"
+  HREF="node9.html">Tool Developed for Open Loop Systems</A>
+<LI><A NAME="tex2html186"
+  HREF="node10.html">Conclusions</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html181"
+  HREF="node7.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html175"
+  HREF="ltitool_manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html169"
+  HREF="node5.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html177"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html179"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html182"
+  HREF="node7.html">Impulse response</A>
+<B> Up:</B> <A NAME="tex2html176"
+  HREF="ltitool_manual.html">ltitool_manual</A>
+<B> Previous:</B> <A NAME="tex2html170"
+  HREF="node5.html">Updating the Version</A>
+ &nbsp; <B>  <A NAME="tex2html178"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html180"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

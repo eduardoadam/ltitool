@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.949 0.949 0.949]" HPosition="center" Name="cdCWnd" Position="[0 65 1226 703]" Resize="on" VPosition="top" windowStyle="normal">
+    <GlobalSrc>
+% Load packages
+%pkg load control;
+%pkg load linear-algebra;
+%pkg load odepkg;
+%pkg load optim;
+%pkg load signal;
+%pkg load struct;
+
+% global variable
+global _ltitoolBasePath;
+
+% Presentation image
+axes(cdCWnd.CDC_Image);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'CDControl.png']);
+refresh();
+
+
+%------------------------------------------------------------------------
+% Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'])
+%------------------------------------------------------------------------
+
+% Limpio el command Window de Octave
+clc
+
+%refresh();
+
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="CDC_Image" Position="[2 -8 742 315]">   disp('Image_FFFB');
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_simulCDC" Position="[10 314 69 25]" String="Simulate" TooltipString="">%
+% Plot step response of cascade control system
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'])
+
+% ----------------------------------
+% Step Response
+% ----------------------------------
+axes(cdCWnd.simulationCCD_image);
+delay=0;
+step_resp_CCD(Gp1,Gp2,Gv,Cint,Cext,Gm1,Gm2,GHint,Gt,delay,Gl1,Gl2, ...
+              amplitud_sp,amplitud_l1,amplitud_l2,T_sp,T_l1,T_l2,TFinal, ...
+              haChCons,haChCarga1,haChCarga2,1000);
+grid on;
+hold off
+
+% Informacion adicional para la ventana principal
+% ------------------------------------------------------------------------
+[estabilidad,yinf,Test]=additionalinfoFB(GHext.num{1,1},GHext.den{1,1},amplitud_sp,TFinal,1000);
+set(cdCWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(cdCWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(cdCWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+
+% 
+refresh();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_helpCDC" Position="[842 645 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node21.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeCCD" Position="[1099 645 90 22]" String="Close" TooltipString="">
+% cierro ventana principal
+close(cdCWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_10" Position="[786 5 316 23]" String="Analysis and Simulation of " TooltipString=""/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="simulationCCD_image" Position="[106 319 768 298]">disp('image_simulacionCCD);
+%refresh;
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="estabilidad" Position="[965 280 86 17]" String="Sistem:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Test" Position="[965 343 129 17]" String="Settling Time. =  " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" HorizontalAlignment="left" Name="tiempo_estab_GH" Position="[1109 340 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="y_inf" Position="[965 315 87 17]" String="y(inf) =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="valor_final" Position="[1109 310 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="8" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_15" Position="[965 365 103 14]" String="(Approximate)" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_CDCstepresponse" Position="[875 319 25 22]" String="+" TooltipString="">
+%
+% Llama a graficar la respuesta al escalón del sistema realimentado
+%
+
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'])
+
+% ----------------------------------
+% Step Response
+% ----------------------------------
+figure
+delay=0;
+step_resp_CCD(Gp1,Gp2,Gv,Cint,Cext,Gm1,Gm2,GHint,Gt,delay,Gl1,Gl2, ...
+              amplitud_sp,amplitud_l1,amplitud_l2,T_sp,T_l1,T_l2,TFinal, ...
+              haChCons,haChCarga1,haChCarga2,1000);
+hold off
+
+
+% Informacion adicional para la ventana principal
+% ------------------------------------------------------------------------
+[estabilidad,yinf,Test]=additionalinfoFB(GHext.num{1,1},GHext.den{1,1},amplitud_sp,TFinal,1000);
+set(cdCWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(cdCWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(cdCWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+
+% 
+refresh();
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="label_Estabilidad" Position="[1073 280 126 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_19" Position="[895 413 64 17]" String="[K*] = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco_int" Position="[967 410 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Kastultimo" Position="[895 450 61 17]" String="[K*u] = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco_ultimo_int" Position="[967 445 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Symbol" FontSize="15" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_omega_u" Position="[895 475 69 27]" String="w      =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wu_int" Position="[967 480 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="9" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_sub_u" Position="[910 490 30 17]" String="-180" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_GM" Position="[895 520 58 17]" String="GM = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="gain_margin_int" Position="[967 515 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Symbol" FontSize="15" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_omega_180" Position="[895 545 56 27]" String="w  = " TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="9" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_sub_cg" Position="[905 565 30 17]" String="gc" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="w_cg_int" Position="[967 550 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_PM" Position="[895 595 56 17]" String="PM  = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="phase_margin_int" Position="[967 590 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_CDCanalysis" Position="[763 145 186 50]" String="Analysis Tools" TooltipString="">
+% Open cascade control system analysis window
+cdCAnalysisWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runloadCDCdatawindow" Position="[763 92 186 46]" String="Load Data" TooltipString="">
+% Open window to load data
+cdCLoadDataWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_CDCsimparameters" Position="[763 205 187 49]" String="Simulation Parameters" TooltipString="">
+% Open window to load simaltion parameters
+cdCSimParamWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_CDCadditionalinfo" Position="[990 250 183 22]" String="Additional Information" TooltipString="">
+%
+% Additional information for CDC main window
+% 
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'])
+
+
+% Additional information for the main window
+% ------------------------------------------------------------------------
+% Additional information of stability
+[estabilidad,yinf,Test]=additionalinfoFB(GHext.num{1,1},GHext.den{1,1},amplitud_sp,TFinal,1000);
+
+% --------------------------------------------------------------------------------
+% LAZO INTERNO
+% --------------------------------------------------------------------------------
+% Additional information about frequency response
+nGHint=GHint.num{1,1}; dGHint=GHint.den{1,1};
+[ceros_la, polos_la,KGHint]=xzpkdata(nGHint,dGHint);
+nGHint=nGHint/KGHint;
+GH_Kint = tf(nGHint,dGHint); %
+Kastericint=KGHint;
+GHint=tf(Kastericint*nGHint,dGHint);
+[mGHint,pGHint,wint]=bode(GHint);
+% fix the phase wrap arownd
+phaudint=pGHint;
+phwint=unwrap(phaudint*pi/180);
+phaudint=phwint*180/pi;
+% delayed plant phase,
+%phad=phaud + ((-w.*delay)*180/pi)';
+delay=0;
+[Kastint,Kast_ultint,wultimoint,GMint,wcgint,PMint]=additionalinfofreq(GHint,Kastericint,mGHint,phaudint,delay,wint);
+
+
+% --------------------------------------------------------------------------------
+% LAZO EXTERNO
+% --------------------------------------------------------------------------------
+% Additional information about frequency response
+nGHext=GHext.num{1,1}; dGHext=GHext.den{1,1};
+[ceros_la, polos_la,KGHext]=xzpkdata(nGHext,dGHext);
+nGHext=nGHext/KGHext;
+GH_Kext = tf(nGHext,dGHext); %
+Kastericext=KGHext;
+GHext=tf(Kastericext*nGHext,dGHext);
+[mGHext,pGHext,wext]=bode(GHext);
+% fix the phase wrap arownd
+phaudext=pGHext;
+phwext=unwrap(phaudext*pi/180);
+phaudext=phwext*180/pi;
+% delayed plant phase,
+%phad=phaud + ((-w.*delay)*180/pi)';
+delay=0;
+[Kastext,Kast_ultext,wultimoext,GMext,wcgext,PMext]=additionalinfofreq(GHext,Kastericext,mGHext,phaudext,delay,wext);
+
+
+
+% ------------------------------------------------------------------------
+% % Additional information for the main window
+% ------------------------------------------------------------------------
+% Dynamic response of cascade control system
+set(cdCWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(cdCWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(cdCWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+% Frequency response LAZO INTERNO
+set(cdCWnd.Kasterisco_int, &quot;String&quot;, num2str(Kastint))
+set(cdCWnd.Kasterisco_ultimo_int, &quot;String&quot;, num2str(Kast_ultint))
+set(cdCWnd.wu_int, &quot;String&quot;, num2str(wultimoint))
+set(cdCWnd.gain_margin_int, &quot;String&quot;, num2str(GMint))
+set(cdCWnd.w_cg_int, &quot;String&quot;, num2str(wcgint))
+set(cdCWnd.phase_margin_int, &quot;String&quot;, num2str(PMint))
+% Frequency response LAZO EXTERNO
+set(cdCWnd.Kasterisco_ext, &quot;String&quot;, num2str(Kastext))
+set(cdCWnd.Kasterisco_ultimo_ext, &quot;String&quot;, num2str(Kast_ultext))
+set(cdCWnd.wu_ext, &quot;String&quot;, num2str(wultimoext))
+set(cdCWnd.gain_margin_ext, &quot;String&quot;, num2str(GMext))
+set(cdCWnd.w_cg_ext, &quot;String&quot;, num2str(wcgext))
+set(cdCWnd.phase_margin_ext, &quot;String&quot;, num2str(PMext))
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_setdefaultCDC" Position="[985 92 215 22]" String="Reload Default Values" TooltipString="">
+%
+% Rewrite 2 files with predefined default data 
+%
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s'); 
+% plant, ME and FCE
+tiempo_muerto=0.0;
+Gp1=(s+1)/(s^2+s+1); Gp2=(1)/(2*s+1); Gl1=Gp1; Gl2=Gp1;
+Gm1=tf(1,1); Gt=Gm1; Gm2=Gm1;
+Gv=1/(0.1*s+1);
+% controllers
+Krint=5; Krext=1;
+Cint=tf(Krint,1);
+Cext=Krext*(1+1/(1*s));
+% G(s)H(s)
+GHint=Gp2*Gv*Cint*Gm2; Gastint1=minreal(Gp2*Gv*Cint/(1+GHint));
+GHext=minreal(Gp1*Gastint1*Cext*Gm1);
+% Simulation parameters
+amplitud_sp=1; amplitud_l1=1;  amplitud_l2=1;
+T_sp=1; T_l1=10;  T_l2=20; TFinal=30;
+
+% Simulation window parameters
+haChCons=1;
+haChCarga1=1;
+haChCarga2=1;
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'],'Gp1','Gp2','Gl1','Gl2','Gm1','Gm2','Gt','Gv', ...
+                          'Cint','Cext','tiempo_muerto','Krint','Krext','GHint','GHext');
+
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'],'T_sp','T_l1','T_l2','TFinal', ...
+                          'amplitud_sp','amplitud_l1','amplitud_l2', ...
+                          'haChCons','haChCarga1','haChCarga2');        
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_clear_CDCsimfigure" Position="[10 645 219 22]" String="Clear Simulation Window" TooltipString="">%
+% Clear simulation window
+%
+
+% limpio la ventana con las simulaciones
+cla(cdCWnd.simulationCCD_image)
+% 
+refresh();
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_14" Position="[787 40 297 23]" String="Cascade Control System" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_15" Position="[967 390 111 17]" String="Internal Loop" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_16" Position="[1095 390 118 17]" String="External Loop" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco_ext" Position="[1099 410 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco_ultimo_ext" Position="[1099 445 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wu_ext" Position="[1099 480 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="gain_margin_ext" Position="[1099 515 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="w_cg_ext" Position="[1099 550 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="phase_margin_ext" Position="[1099 590 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_saveCDC" Position="[970 645 90 22]" String="Save" TooltipString="">
+%
+% Save variables, transfer function, and so on
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'])
+
+
+[fname, fpath, fltidx] = uiputfile ({'.txt','Archivos de texto';'.m', 'Scripts de octave';'.', 'Todos los archivos'}, 'Abrir archivo. Elija un nombre de archivo para abrir');
+if(fname)
+
+
+[tsim,ysim]=simulCCD(Gp1,Gp2,Gv,Cint,Cext,Gm1,Gm2,GHint,Gt,tiempo_muerto,Gl1,Gl2, ...
+              amplitud_sp,amplitud_l1,amplitud_l2,T_sp,T_l1,T_l2,TFinal, ...
+              haChCons,haChCarga1,haChCarga2,1000);
+
+% ------------------------------------------------------------------------
+% Informacion adicional
+% ------------------------------------------------------------------------
+[estabilidad,yinf,Test]=additionalinfoFB(GHext.num{1,1},GHext.den{1,1},amplitud_sp,TFinal,1000);
+
+% --------------------------------------------------------------------------------
+% LAZO INTERNO
+% --------------------------------------------------------------------------------
+% Additional information about frequency response
+nGHint=GHint.num{1,1}; dGHint=GHint.den{1,1};
+[zeros_GHint, poles_GHint,KGHint]=xzpkdata(nGHint,dGHint);
+Kastericint=KGHint;
+[mGHint,pGHint,wint]=bode(GHint);
+% fix the phase wrap arownd
+phaudint=pGHint;
+phwint=unwrap(phaudint*pi/180);
+phaudint=phwint*180/pi;
+% delayed plant phase,
+%phad=phaud + ((-w.*delay)*180/pi)';
+%delay=0;
+[Kastint,Kast_ultint,wultint,GMint,wcgint,PMint]=additionalinfofreq(GHint,Kastericint,mGHint,phaudint,tiempo_muerto,wint);
+
+
+% --------------------------------------------------------------------------------
+% LAZO EXTERNO
+% --------------------------------------------------------------------------------
+% Additional information about frequency response
+nGHext=GHext.num{1,1}; dGHext=GHext.den{1,1};
+[zeros_GHext, poles_GHext,KGHext]=xzpkdata(nGHext,dGHext);
+Kastericext=KGHext;
+[mGHext,pGHext,wext]=bode(GHext);
+% fix the phase wrap arownd
+phaudext=pGHext;
+phwext=unwrap(phaudext*pi/180);
+phaudext=phwext*180/pi;
+% delayed plant phase,
+%phad=phaud + ((-w.*delay)*180/pi)';
+%delay=0;
+[Kastext,Kast_ultext,wultext,GMext,wcgext,PMext]=additionalinfofreq(GHext,Kastericext,mGHext,phaudext,tiempo_muerto,wext);
+
+
+% Zeros and poles of closed loop
+Gcl=GHext/(1+GHext);
+[zeros_cl, poles_cl,Kcl]=xzpkdata(Gcl.num{1,1},Gcl.den{1,1});
+
+
+  % --------------------------
+  % Save Results
+  % --------------------------
+  save([fpath fname], 'Gp1','Gp2','Gl1','Gl2','Gv','Gm1','Gm2','Gt','tiempo_muerto', ...
+       'Krint', 'Krext','Cint', 'Cext', 'GHint', 'GHext', ...
+       'Kastint','Kast_ultint','wultint','GMint','wcgint','PMint', ...
+       'Kastext','Kast_ultext','wultext','GMext','wcgext','PMext', ...
+       'zeros_GHint', 'poles_GHint','zeros_GHext', 'poles_GHext','zeros_cl', 'poles_cl', ...
+       'estabilidad','yinf','Test', 'T_sp','T_l1','T_l2','TFinal','tsim','ysim', ...
+       'amplitud_sp','amplitud_l1','amplitud_l2');
+else
+  disp('Cancelado');
+endif;
+</uiControl>
+</dialog>

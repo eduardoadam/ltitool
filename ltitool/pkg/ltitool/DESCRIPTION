@@ -1,0 +1,24 @@
+# This is a basic description file based on octave documentation
+# this file was created to help in package creation process.
+# In the following lines, if a line start with '#' is a comment.
+# If a text must continue in the next line, must start whith a
+# space char ' '.
+# The configuration value are pairs of NameOfOption: ValueOfOption.
+#
+# Name of package as default will be the name of main window
+Name: ltitool
+Version: 1.0.0
+Date: 30/07/2019
+# Name of the author and (and possibly email)
+Author: your name (your@email.com).
+# The name (and possibly email) of the package maintainer.
+Maintainer: your name (your@email.com).
+# One line title (short description) of the package.
+Title: The title of the package
+# One paragraph description of package
+Description: this is a paragraph an is possible use more of one
+ line. In this case, the second (and nexts) lines must start with
+ space.
+# Short license description (other details about license are in the
+# COPYING file.
+License: GPLv3+

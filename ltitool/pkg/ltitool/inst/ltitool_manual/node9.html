@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Tool Developed for Open Loop Systems</TITLE>
+<META NAME="description" CONTENT="Tool Developed for Open Loop Systems">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html227"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html221"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html215"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html223"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html225"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html228"
+  HREF="node10.html">Conclusions</A>
+<B> Up:</B> <A NAME="tex2html222"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html216"
+  HREF="node8.html">Step response</A>
+ &nbsp; <B>  <A NAME="tex2html224"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html226"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00430000000000000000">
+Tool Developed for Open Loop Systems</A>
+</H1>
+
+<P>
+This tool allows:
+
+<OL>
+<LI>To determine poles and zeros maps of a transfer function.
+</LI>
+<LI>Similarly, impulse and step dynamic responses of <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>) are presented in the main application window. Also, it is necessary to specify,
+	
+<OL>
+<LI>step amplitude, in case of choosing for this option and
+</LI>
+<LI>simulation time.
+	
+</LI>
+</OL>
+</LI>
+</OL>
+
+<P>
+Also in this developed tool additional information is presented, as
+
+<OL>
+<LI>Stability or instability of the LTI system.
+</LI>
+<LI>Final value reached by the open loop system once the transient has finished.
+</LI>
+<LI>Approximate settling time, which is calculated based on the dominant poles of the system. Such calculus can be improved if the simulation time is extended.
+</LI>
+</OL>
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Example 3</SPAN>
+
+<P>
+It is pretend to obtain the open-loop response to the step and delta for the transfer function,
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+G(s)=\frac{s+1}{s^2+0.5s+1}
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="146" HEIGHT="50" BORDER="0"
+ SRC="img18.png"
+ ALT="\begin{displaymath}
+G(s)=\frac{s+1}{s^2+0.5s+1}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+the application can be invoked in command mode as indicated below.
+
+<P>
+<PRE>	
+	% packages are loaded.
+	pkg load control signal ltitool
+	
+	% Clean memory and command window.
+	clear all, clc
+	
+	% Complex variable  "s"
+    s = tf("s");
+    % plant
+    Gol=(s+1)/(s^2+0.5*s+1);
+    % simulation parameters
+    k=1;        % step amplitude
+    tFinal=20;  % simulation time
+
+
+   % ------------------------------------------------------------------------
+   % Poles-Zeros Map
+   % ------------------------------------------------------------------------
+   title_string='Poles and Zeros Map of G(s)';
+   legend_zeros_string='Zeros of G(s)';
+   legend_poles_string='Poles of G(s)';
+
+   figure(1), 
+   xpzmap(title_string,legend_zeros_string,legend_poles_string, ... 
+   Gol.num{1,1},Gol.den{1,1});
+
+   % ------------------------------------------------------------------------
+   % Simulation
+   % ------------------------------------------------------------------------
+   % Step response
+   figure(2), OLstepresponse(Gol.num{1,1},Gol.den{1,1},k,0.0,tFinal,1000);
+
+   % Impulse response 
+   figure(3), OLimpulseresponse(Gol.num{1,1},Gol.den{1,1},0.0,tFinal,1000);
+
+   % ------------------------------------------------------------------------
+   % Additional information 
+   % ------------------------------------------------------------------------
+   [stability,yinf,Test]=additionalinfo(Gol.num{1,1},Gol.den{1,1}, ...
+                                       tFinal,1000)
+</PRE>
+
+<P>
+The command window reports
+<PRE>
+&gt;&gt; stability = Asympt. Stable
+&gt;&gt; yinf =  1
+&gt;&gt; Test =  16.060
+</PRE>
+
+<P>
+Notice that in the case of the step response, the command window reports that <TT>yinf=1</TT>while for the impulse response <TT>yinf=0</TT>.
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Example 4</SPAN>
+
+<P>
+The same example can be solved directly by invoking the analysis and simulation window  of open-loop linear systems, simply by typing in the command window,
+<PRE>
+&gt;&gt; pkg load control signal ltitool,
+&gt;&gt; oLWnd;
+</PRE>
+and then Octave will present the window that it shows in Fig. <A HREF="#chp_la_fig01_GLA">3.4</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_la_fig01_GLA"></A><A NAME="480"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.4:</STRONG>
+Analysis and simulation window for LTI systems in open loop.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="555" HEIGHT="314" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig01_ejemGLA.png"
+ ALT="Image fig01_ejemGLA"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Notice that, 
+
+<UL>
+<LI>The window has preloaded data that can be changed.
+</LI>
+<LI>It is possible to specify, step amplitude and simulation time.
+</LI>
+<LI>It can be obtained easily  (i) poles-zeros map, (ii) step response or, (iii) impulse response.
+</LI>
+<LI>The + button throws a graph out of the application window.
+</LI>
+</UL>
+
+<P>
+<BR>
+<BR>
+By way of example, the Fig. <A HREF="#chp_la_fig02_GLA">3.5</A> shows the step response along with the additional  information about stability, reached steady state value and settling time.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_la_fig02_GLA"></A><A NAME="489"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.5:</STRONG>
+Open loop LTI system analysis and simulation window after pressing the step response button.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="555" HEIGHT="315" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig02_ejemGLA.png"
+ ALT="Image fig02_ejemGLA"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html227"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html221"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html215"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html223"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html225"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html228"
+  HREF="node10.html">Conclusions</A>
+<B> Up:</B> <A NAME="tex2html222"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html216"
+  HREF="node8.html">Step response</A>
+ &nbsp; <B>  <A NAME="tex2html224"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html226"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

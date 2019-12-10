@@ -1,0 +1,36 @@
+# Created by Octave 4.2.2, Tue Aug 13 18:24:07 2019 -03 <eadam@eduardo-adam>
+# name: T_sp
+# type: scalar
+1
+
+
+# name: T_l
+# type: scalar
+10
+
+
+# name: TFinal
+# type: scalar
+20
+
+
+# name: amplitud_sp
+# type: scalar
+1
+
+
+# name: amplitud_l
+# type: scalar
+1
+
+
+# name: haChCons
+# type: scalar
+1
+
+
+# name: haChCarga
+# type: scalar
+1
+
+

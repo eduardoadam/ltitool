@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.949 0.949 0.949]" HPosition="center" Name="addiToolWnd" Position="[0 251 884 517]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+%
+% Additional tools main windowADDITOOLwnd
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Main window image
+axes(addiToolWnd.additool_Image);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'underconstruction.jpeg']);
+refresh();
+
+% Clear el command Window
+clc
+
+%
+refresh();
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="additool_Image" Position="[304 50 554 387]">disp('ahaaa')
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Button_ayuda" Position="[635 455 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node23.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="Btn_closeADDITOOL" Position="[768 455 90 22]" String="Close" TooltipString="">
+  % Close window
+  close(addiToolWnd.figure);</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Button_lanzaventanaGLATOOL" Position="[20 70 261 39]" String="Under Constarction" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%show_ventanaGLA();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Button_lanzaVentanaLRTOOL" Position="[20 120 263 38]" String="Under Constarction" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%show_ventanaGH();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Button_lanzaventanaAJUSTEPID" Position="[20 170 264 41]" String="Under Constarction" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%show_ventanaGLC();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Button_lanzaventanAJUSTEBMPID" Position="[20 220 264 40]" String="Under Constarction" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%show_ventanaECA();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runOPTIMALPID" Position="[20 277 264 37]" String="Optimal Tuning of  PID Controller" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run main window of optimal tuning of  PID controller
+%
+
+optimalPIDWnd();
+
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Ubuntu" FontSize="18" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_187" Position="[162 10 709 28]" String="Additional Tools for LTI System Control" TooltipString=""/>
+</dialog>

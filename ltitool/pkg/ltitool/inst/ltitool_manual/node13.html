@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Analysis and Simulation Based on G(s)H(s)</TITLE>
+<META NAME="description" CONTENT="Analysis and Simulation Based on G(s)H(s)">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node14.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html287"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html281"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html285"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html288"
+  HREF="node14.html">Analysis and Simulation of</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="node12.html">Tools for Feedback LTI</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node12.html">Tools for Feedback LTI</A>
+ &nbsp; <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html286"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00511000000000000000">
+Analysis and Simulation Based on <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>)</A>
+</H2>
+
+<P>
+The tool here developed consists of a function set that allows for a given variable gain value <SPAN  CLASS="textit">K</SPAN>:
+
+<OL>
+<LI>Determine the map of poles and zeros of the transfer function <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>) and of the closed loop transfer function with unit feedback for setpoint change.
+</LI>
+<LI>Present the root locus  of a feedback system, Bode and Nyquist diagrams.
+</LI>
+<LI>Furthermore, it can also be determined, the dynamic responses of the feedback system given by Fig. <A HREF="node11.html#chp_lc_fig02_GH">4.2</A>. For this you must specify,
+	
+<OL>
+<LI>step amplitude and
+</LI>
+<LI>simulation time
+	
+</LI>
+</OL>
+</LI>
+</OL>
+
+<P>
+<BR>
+<BR>
+Besides in this tool, additional information about,
+
+<OL>
+<LI>stability or instability of the feedback linear system;
+</LI>
+<LI>final value reached by the open loop system once the transient has passed;
+</LI>
+<LI>Approximated settling time, which is calculated based on the dominant pole(s) of the system. Such calculation can be improved if the simulation time is extended.
+</LI>
+<LI>The gain value <SPAN  CLASS="textit">K*</SPAN> and the ultimate gain value <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img34.png"
+ ALT="$K^*_u$"></SPAN> of <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>), phase and gain cross frequencies <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$\omega_{-180}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$\omega_{cg}$"></SPAN> respectively; together with the gain and phase margins.
+</LI>
+</OL>
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Ejemplo 3.2</SPAN> <A NAME="ejem02_gh_oct"></A>As an example, the resolution of the Exam. 3.1 is shown using the developed functions, which can be invoked directly from the Octave command window or, through an .m extension file, as is usually done.
+
+<P>
+<PRE>
+	% packages are loaded.
+	pkg load control signal ltitool
+
+	% Clean memory and command window.
+	clear all, clc
+
+	% -----------------------------------------------
+	% Default values for the variables are defined
+	% -----------------------------------------------
+	% G(s)H(s):
+	s=tf('s');
+	Gs=2.0/((5*s+1)*(1*s^2+1*s+1)); delay=0;
+	Hs=(5*s+1)/(5*s);
+	Kr=1.25;
+	GH=minreal(Kr*Gs*Hs);
+
+	% Simulation parameters
+	AmplitudSP=1; % step amplitude
+	tFinal=30;    % simulation time
+
+	% -----------------------------------------
+	% Analisys Tools
+	% -----------------------------------------
+	% Root locus
+	figure(1), clf(figure(1),"reset");
+	[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHrlocusplot(GH.num{1,1},GH.den{1,1},Kr,1000);
+
+	% Bode diagrams
+	figure(2), clf(figure(2),"reset");
+	[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHbodeplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+
+	% Nyquist diagram
+	figure(3),  clf(figure(3),"reset");
+	[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHnyquistplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+
+	% -----------------------------------------
+	% Simulation Tools
+	% -----------------------------------------
+	% Step response
+	figure(4),  clf(figure(4),"reset");
+	GHstepresponse(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000);
+
+	% Impulse response
+	figure(5), clf(figure(5),"reset");
+	GHimpulseresponse(GH.num{1,1},GH.den{1,1},tFinal,1000);
+
+	% Additional information
+	[estabilidad,yinf,Test]=additionalinfo(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000);
+</PRE>
+
+<P>
+As an example, the root locus diagram of this application is shown.
+
+<DIV ALIGN="CENTER"><A NAME="chp_lc_fig_LR_ejemGH"></A><A NAME="836"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.5:</STRONG>
+Root locus diagram of Exam. 3.2.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="405" HEIGHT="304" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig_ejem32_GH_ltitool.png"
+ ALT="Image fig_ejem32_GH_ltitool"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Ejemplo 3.3</SPAN>
+
+<P>
+Figure <A HREF="#chp_lc_fig01_ejemGH">4.6</A> shows the application window performed for the analysis of closed-loop LTI systems based on the expression of <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>).
+
+<DIV ALIGN="CENTER"><A NAME="chp_lc_fig01_ejemGH"></A><A NAME="918"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.6:</STRONG>
+Closed loop system analysis and simulation window based on <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>) with preloaded data.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="600" HEIGHT="331" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig01_ejemGH.png"
+ ALT="Image fig01_ejemGH"></TD></TR>
+</TABLE>
+</DIV>
+Note that the data has been preloaded by a file that saves the data from the last time you worked with this application. There is also a button (Load Default Values Botton) that load the preloaded data for this particular example, which if it pressed, default values are reloaded.
+
+<P>
+Figure <A HREF="#chp_lc_fig02_ejemGH">4.7</A> shows the numerical simulation of the feedback system when <SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$K^* = 0.5$"></SPAN>. Similarly, the poles and zeros maps of <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>) can be obtained from the feedback system, together the root locus, Bode and Nyquist diagrams.
+
+<P>
+In addition, the additional information button provides information of the feedback system related to stability, establishment value, and establishment time, <SPAN  CLASS="textit">GM</SPAN>, <SPAN  CLASS="textit">PM</SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img35.png"
+ ALT="$\omega_{-180}$"></SPAN> y <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.png"
+ ALT="$\omega_{cg}$"></SPAN>. Note that the values <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img38.png"
+ ALT="$K^*$"></SPAN> and <SPAN  CLASS="textit">GM</SPAN> here reported are coincident with that it was presented by the Exam. 3.1.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_lc_fig02_ejemGH"></A><A NAME="919"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.7:</STRONG>
+Closed loop system analysis and simulation window based on <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>) with step response.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="601" HEIGHT="331" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig02_ejemGH.png"
+ ALT="Image fig02_ejemGH"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html287"
+  HREF="node14.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html281"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html275"
+  HREF="node12.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html283"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html285"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html288"
+  HREF="node14.html">Analysis and Simulation of</A>
+<B> Up:</B> <A NAME="tex2html282"
+  HREF="node12.html">Tools for Feedback LTI</A>
+<B> Previous:</B> <A NAME="tex2html276"
+  HREF="node12.html">Tools for Feedback LTI</A>
+ &nbsp; <B>  <A NAME="tex2html284"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html286"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

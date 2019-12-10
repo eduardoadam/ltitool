@@ -1,0 +1,17 @@
+
+Guardar el archivo de la versión en la página web de la FIQ.
+------------------------------------------------------------
+Sitio donde guardar: http://www.fiq.unl.edu.ar/control/uploads/
+El archivo que se debe guardar en la web es:
+
+					versionLTITOOL.php
+
+
+Luego ejecuar en Octave el comando de LTITOOL
+
+checkVersion('http://www.fiq.unl.edu.ar/control/uploads/versionLTITOOL.php')
+
+El archivo checkVersion.m es cargado en la carpeta .m
+
+
+

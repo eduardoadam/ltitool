@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="cLSimParamWnd" Position="[0 393 723 375]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>  
+   % global variable
+   global _ltitoolBasePath;
+
+   %
+   % Load predefined data
+   % --------------------------------
+   load([_ltitoolBasePath filesep() 'data' filesep() 'loadCLsim'])
+
+   % Muestro los datos en la ventana
+   set(cLSimParamWnd.amplitud_sp,'string',num2str(amplitud_sp));
+   set(cLSimParamWnd.T_sp,'string',num2str(T_sp));
+   set(cLSimParamWnd.amplitud_l,'string',num2str(amplitud_l));
+   set(cLSimParamWnd.T_l,'string',num2str(T_l));
+   set(cLSimParamWnd.TFinal,'string',num2str(TFinal));
+   set(cLSimParamWnd.cambio_carga, 'value', haChCarga);
+   set(cLSimParamWnd.cambio_SP, 'value', haChCons);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_20" Position="[255 15 274 18]" String="Simulation Parameters" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="k_sp" Position="[30 115 154 15]" String="SP Step Amplitude" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="k_l" Position="[410 110 204 15]" String="DIsturbance Step Amplitude" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_sp" Position="[235 110 54 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_l" Position="[634 110 49 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_25" Position="[30 153 111 15]" String="Initial Time" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_26" Position="[410 145 139 15]" String="Initial Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_sp" Position="[235 155 46 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_l" Position="[635 145 48 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_27" Position="[30 215 155 15]" String="Simulation" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_28" Position="[30 260 152 15]" String="Simulation Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TFinal" Position="[235 255 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeparamsimulGLC" Position="[593 315 90 22]" String="Close" TooltipString="">
+  % global variable
+  global _ltitoolBasePath;
+
+  % Obtengo datos de la ventana para despues grabarlos
+  %
+  amplitud_sp = eval(get(cLSimParamWnd.amplitud_sp, 'string'));
+  T_sp = eval(get(cLSimParamWnd.T_sp, 'string'));
+  amplitud_l = eval(get(cLSimParamWnd.amplitud_l, 'string'));
+  T_l = eval(get(cLSimParamWnd.T_l, 'string'));
+  TFinal = eval(get(cLSimParamWnd.TFinal, 'string'));
+  haChCarga = get(cLSimParamWnd.cambio_carga, 'value');
+  haChCons = get(cLSimParamWnd.cambio_SP, 'value');
+  
+  % Grabo datos de amplitud de escalones y tiempos de simulacion cargados en ventana
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadCLsim'],'T_sp','T_l','TFinal','amplitud_sp','amplitud_l','haChCons','haChCarga')
+
+  % Close window
+  close(cLSimParamWnd.figure);
+</uiControl>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="cambio_SP" Position="[25 75 243 17]" String="Set-Point Step Change" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="cambio_carga" Position="[405 75 287 17]" String="Disturbance Step Change" TooltipString="" Value="select"/>
+</dialog>

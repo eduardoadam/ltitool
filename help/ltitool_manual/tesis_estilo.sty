@@ -1,0 +1,493 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                      Universidad Nacional del Litoral                 %
+%                       Facultad de Ingeniería Química                  %
+%                                  Book                                 %
+%                                                                       %
+%                        (C) Eduardo J. Adam, 2009.                     %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Author:       Eduardo J. Adam <eadam@fiq.unl.edu.ar>
+% Date:         September, 2009. [ Stripped 09/21/09 ]
+% Format:       LaTeX-Kile for Ubuntu.
+
+
+
+
+%%%% Package
+\usepackage[utf8]{inputenc}
+\usepackage{ucs}
+%\usepackage[spanish,activeacute]{babel}
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{times} % Grosso! Cambia el tipo; también puede ser: avant avantgar bookman chancery charter concrete courier helvet ncntrsbk palatcm palatino pandora times utopia
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath,amscd,makeidx}
+\usepackage{mathrsfs}
+%\usepackage{mathabx}
+%\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{cancel}
+\usepackage{rotating}
+\usepackage{pst-all}
+%\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+%\usepackage[dvips,pdftex]{hyperref}
+\usepackage{hyperref}
+\DeclareGraphicsExtensions{.pdf,.png,.mps,.eps,.tpx}
+%\usepackage{pgf}	%?????????????
+%\usepackage[pstricks]{bclogo}
+%\usepackage[colorinlistoftodos, textwidth=2cm, shadow]{todonotes}
+\usepackage{float}
+\usepackage{slashbox}
+\usepackage{enumerate}
+\usepackage{enumitem} %Sirve para enumerar items (a), (b), (i), (ii) ...
+\usepackage{yhmath} % Sirve para escribir números periódicos. 0.333.. = 0.\wideparen{3}
+
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{subfigure} % Para poner subfiguras
+\usepackage{color}    % texto y graficos a color
+\usepackage{fancyhdr}
+%\usepackage{fancybox,shadow, color,psfrag,float}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Paquetes para dibujo con TIKZ%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usetikzlibrary{calc, positioning, decorations.pathmorphing}
+%\usetikzlibrary{arrows}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\usepackage{todonotes}		%Paquetes para hacer llamadas fuera del cuadro texto
+%\usepackage{menukeys}		%Paquetes para hacer llamadas fuera del cuadro texto
+
+%\usepackage{enumitem}
+
+\usepackage{xspace}
+%\usepackage[notcite,notref]{showkeys}
+\usepackage{url}
+%\usepackage{color}
+\usepackage[active]{srcltx}% para busqueda inversa
+
+%\usepackage[spanish]{minitoc}
+\usepackage{longtable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INDICE ALFABETICO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cite}
+%\usepackage{natbib}
+%\usepackage{enumerate}
+
+
+\sloppy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INDICE ALFABETICO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{makeidx}
+\makeindex % esto habilita los comandos de makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INDICE ALFABETICO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text Box %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\textheight=196mm
+%\textwidth =124mm
+%\oddsidemargin -5.4mm
+%\evensidemargin -5.4mm
+%\topmargin .6mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text Box %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % % % % % % % % % % % % % % % % % %
+%ACTIVAR CUANDO SE NECESITE HACER DB
+\usepackage{schemabloc}
+\usepackage{blox}
+%\usepackage{tcolorbox}
+% % % % % % % % % % % % % % % % % % %
+
+
+
+%----------------------------------------------------------------------------------------
+%	VARIOUS REQUIRED PACKAGES AND CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+%\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm,headsep=10pt,a4paper]{geometry} % Page margins
+
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage{tikz} % Required for drawing custom shapes
+
+
+\usepackage{enumitem} % Customize lists
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+
+
+
+%----------------------------------------------------------------------------------------
+%	THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+%\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
+
+
+\newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+\newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
+\newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+\newtheorem{notation}{Notation}[chapter]
+
+% Boxed/framed environments
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ocre}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+	\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+\newtheoremstyle{blacknumex}% Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% Body font
+{} % Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily{\tiny\ensuremath{\blacksquare}}\nobreakspace\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+	\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+\newtheoremstyle{blacknumbox} % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+	\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+% Boxed/framed environments
+\newtheoremstyle{brownnumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{brown}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{brown}\thmname{#1}\nobreakspace\thmnumber{#2}% Theorem text (e.g. Theorem 2.1)
+	\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+% Non-boxed/non-framed environments
+\newtheoremstyle{ocrenum}% % Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ocre}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+	\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+\makeatother
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\theoremstyle{ocrenumbox}
+\newtheorem{theoremeT}[dummy]{Teorema}
+\newtheorem{problem}{Problema}[chapter]
+\newtheorem{exerciseT}{Ejercicio}[chapter]
+%\theoremstyle{blacknumex}
+\theoremstyle{ocrenumbox}
+\newtheorem{exampleT}{Ejemplo}[chapter]
+\theoremstyle{blacknumbox}
+\newtheorem{vocabulary}{Vocabulary}[chapter]
+\theoremstyle{ocrenumbox}
+\newtheorem{definitionT}{Definición}[section]
+\theoremstyle{ocrenumbox}
+\newtheorem{procedureT}{Procedimiento}[section]
+\theoremstyle{ocrenumbox}
+\newtheorem{corollaryT}[dummy]{Corolario}
+\theoremstyle{ocrenum}
+\newtheorem{proposition}[dummy]{Proposition}
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Theorem box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt]{tBox}
+
+
+% Example box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+roundcorner=6pt
+innerbottommargin=5pt]{exBox}
+
+
+% Exercise box	  
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=ocre!10,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}	
+
+% Definition box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{dBox}	
+
+% Corollary box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!5,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt]{cBox}
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
+\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}				  
+\newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
+\newenvironment{procedure}{\begin{cBox}\begin{procedureT}}{\end{procedureT}\end{cBox}}
+\newenvironment{example}{\begin{exBox}\begin{exampleT}}{\hfill{\color{brown}\tiny\ensuremath{\blacksquare}}\end{exampleT}\end{exBox}}
+\newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}	
+
+%----------------------------------------------------------------------------------------
+%	REMARK ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{remark}{\par\vspace{10pt}\small % Vertical white space above the remark and smaller font size
+	\begin{list}{}{
+			\leftmargin=35pt % Indentation on the left
+			\rightmargin=25pt}\item\ignorespaces % Indentation on the right
+		\makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+			\node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,-15pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
+		\advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Style definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{teo}{\textbf Teorema}[chapter]
+\newtheorem{lemma}{\textbf Lema}[chapter]
+\newtheorem{corolario}{\textbf Corolario}[chapter]
+\newtheorem{remarca}{\textbf Remarca}[chapter]
+\newtheorem{reg}{\textbf Regla}[chapter]
+\newtheorem{prop}{\textbf Propiedad}[chapter]
+%\newtheorem{proposal}{\textbf Propuesta}[chapter]
+%\newtheorem{defn}{\sc Definici\'on}[chapter]
+%\newtheorem{ejem}{\it Ejemplo}[chapter]
+\newtheorem{procedimiento}{\textbf{Procedimiento}}
+\newenvironment{ejemplo}{$\blacksquare$}{$\blacksquare$}
+\newenvironment{demo}{\textbf{Demostraci\'on}}{$\square$}
+\newenvironment{res}{ {Resoluci\'on. $\rhd$}}{$\lhd$}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Lp}[1]{\mathscr{L}\left[ #1 \right] }		% Transformada de Laplace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Style definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Buena seleccion de colores en http://web.njit.edu/~kevin/rgb.txt.html
+\definecolor{DarkMagenta}{RGB}{139,0,139}
+\definecolor{MidnightBlue}{RGB}{25,25,112}
+\definecolor{Firebrick}{RGB}{142,35,35}
+\definecolor{DarkGreen}{RGB}{0,100,0}
+
+\newcommand{\comando}[1]{
+\begin{center}
+%\colorbox{cian}{}
+\textcolor{DarkMagenta}{\texttt{#1}}
+\end{center}}
+
+% ---------------------------------------------------------------------------------------
+%
+% Defino estilos para el paquete listings
+%
+% Ver algunos de los siguientes links:
+% https://www.sharelatex.com/learn/Code_listing
+% https://tex.stackexchange.com/questions/70145/lstlistings-framed-code
+% https://tex.stackexchange.com/questions/88564/how-can-i-add-borders
+% https://tex.stackexchange.com/questions/128103/hang-caption-in-lstlisting
+\usepackage{listings} % http://www.ctan.org/tex-archive/macros/latex/contrib/listings
+\usepackage{listingsutf8}
+\usepackage{upquote}
+\usepackage{caption}
+% Set your language (you can change the language for each code-block optionally)
+%\lstset{
+%	belowcaptionskip=1\baselineskip,
+%	breaklines=true,
+%	frame=L,
+%	xleftmargin=\parindent,
+%	language=octave,
+%	showstringspaces=false,
+%	basicstyle=\footnotesize\ttfamily,
+%	keywordstyle=\bfseries\color{green!40!black},
+%	commentstyle=\itshape\color{purple!40!black},
+%	identifierstyle=\color{blue},
+%	stringstyle=\color{orange},
+%}
+
+% Ver el siguiente link:
+% https://www.sharelatex.com/learn/Code_listing
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	language=Octave,
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=t,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,
+	xleftmargin=\parindent,
+	tabsize=2,
+		    literate={ö}{{\"o}}1
+	         {ä}{{\"a}}1
+	         {ü}{{\"u}}1
+	         {á}{{\'{a}}}1
+	         {é}{{\'{e}}}1
+	         {í}{{\'{i}}}1
+	         {ó}{{\'{o}}}1
+	         {ú}{{\'{u}}}1
+	         {ñ}{{\~{n}}}1
+	         {Á}{{\'{A}}}1
+	         {É}{{\'{E}}}1
+	         {Í}{{\'{I}}}1
+	         {Ó}{{\'{O}}}1
+	         {Ú}{{\'{U}}}1
+	         {Ñ}{{\~{N}}}1
+	         {¿}{{?`}}1
+}
+
+\lstset{style=mystyle} 
+\renewcommand\lstlistingname{\textbf{Algoritmo}}
+
+\definecolor{gray97}{gray}{.97}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+
+%\lstset{language=Octave,
+%	showspaces=false,
+%	showtabs=false,
+%	breaklines=true,
+%	showstringspaces=false,
+%	breakatwhitespace=true,
+%	escapeinside={(*@}{@*)},
+%	keywordstyle=\color{bluekeywords}\bfseries,
+%	backgroundcolor=\color{gray97},
+%	%%%
+%	numberstyle=\tiny\color{codegray},
+%	stringstyle=\color{codepurple},
+%	numbers=left,
+%	stepnumber=1,
+%	numbersep=5pt,
+%	tabsize=2,
+%	breaklines=true,
+%	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+%	breakatwhitespace=false,
+%	aboveskip={1.5\baselineskip},
+%	columns=fixed,
+%	upquote=true,
+%	extendedchars=true,
+%	%frame=bottomline,
+%	frame=lines,
+%	xleftmargin=\parindent,
+%	%frame=Ltbr,
+%}
+
+%---------------------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Crea una minipágina con recuadro y sombra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{fminipage}%
+{\begin{Sbox}\begin{minipage}}%
+%{\end{minipage}\end{Sbox}\fbox{\TheSbox}}
+{\end{minipage}\end{Sbox}\shadowbox{\TheSbox}}
+
+
+
+
+

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="cLLoadDataWnd" Position="[0 162 745 606]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+% global variable
+global _ltitoolBasePath;
+
+%
+% Load predefined data
+% --------------------------------
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCLdata'])
+
+
+% Show data loaded in the window to be able to change them
+set(cLLoadDataWnd.numGp,'string',polyout(Gp.num{1,1})); 
+set(cLLoadDataWnd.denGp,'string',polyout(Gp.den{1,1}));
+set(cLLoadDataWnd.numGl,'string',polyout(Gl.num{1,1}));
+set(cLLoadDataWnd.denGl,'string',polyout(Gl.den{1,1}));
+set(cLLoadDataWnd.numGm,'string',polyout(Gm.num{1,1}));
+set(cLLoadDataWnd.denGm,'string',polyout(Gm.den{1,1}));
+set(cLLoadDataWnd.numGt,'string',polyout(Gt.num{1,1}));
+set(cLLoadDataWnd.denGt,'string',polyout(Gt.den{1,1}));
+set(cLLoadDataWnd.numGv,'string',polyout(Gv.num{1,1}));
+set(cLLoadDataWnd.denGv,'string',polyout(Gv.den{1,1}));
+set(cLLoadDataWnd.numGcomp,'string',polyout(Gcomp.num{1,1}));
+set(cLLoadDataWnd.denGcomp,'string',polyout(Gcomp.den{1,1}));
+
+% Controller opcions
+if(Kr==0)
+	set(cLLoadDataWnd.Mode_P,'value',0);
+	% If the option is not P  mode
+	set(cLLoadDataWnd.Kr,'string','0');
+else
+	set(cLLoadDataWnd.Mode_P,'value',1);
+	% If the option is P  mode
+	set(cLLoadDataWnd.Kr,'string',num2str(Kr));
+endif
+if(TD==0)
+	set(cLLoadDataWnd.Mode_D,'value',0);
+	% If the option is not D mode
+	set(cLLoadDataWnd.TD,'string','0');
+else
+	set(cLLoadDataWnd.Mode_D,'value',1);
+	% If the option is D mode  
+	set(cLLoadDataWnd.TD,'string',num2str(TD));
+endif
+if (TI==0)
+	set(cLLoadDataWnd.Mode_I,'value',0);
+	% If the option is not I mode 
+	set(cLLoadDataWnd.TI,'string','0');
+else
+	set(cLLoadDataWnd.Mode_I,'value',1);
+	% If the option is I mode 
+	set(cLLoadDataWnd.TI,'string',num2str(TI));
+endif
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="numGp" Position="[245 78 200 15]" String="bm*s^m+......+b1*s^1+b0 " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGp" Position="[70 75 147 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gp" Position="[20 110 199 15]" String="Gp(s) = -----------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGp" Position="[70 135 145 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="demGp" Position="[245 138 202 15]" String="an*s^n+.....+a1*s^1+a0" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_31" Position="[158 10 462 18]" String="Transfer Functions of the Closed Loop System" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeGCLloaddata" Position="[635 540 90 22]" String="OK" TooltipString="">
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s');
+% Define transfer functions
+% ----------------------------------------------------------------
+% Gp(s)
+numGp = get(cLLoadDataWnd.numGp, 'string');
+denGp = get(cLLoadDataWnd.denGp, 'string');
+sysStrGp = strcat('(',numGp,')', '/','(', denGp,')');
+Gp = tf(eval(sysStrGp));
+% Gl(s)
+numGl = get(cLLoadDataWnd.numGl, 'string');
+denGl = get(cLLoadDataWnd.denGl, 'string');
+sysStrGl = strcat('(',numGl,')', '/','(', denGl,')');
+Gl = tf(eval(sysStrGl));
+% Gm(s)
+numGm = get(cLLoadDataWnd.numGm, 'string');
+denGm = get(cLLoadDataWnd.denGm, 'string');
+sysStrGm = strcat('(',numGm,')', '/','(', denGm,')');
+Gm = tf(eval(sysStrGm));
+% Gt(s)
+numGt = get(cLLoadDataWnd.numGt, 'string');
+denGt = get(cLLoadDataWnd.denGt, 'string');
+sysStrGt = strcat('(',numGt,')', '/','(', denGt,')');
+Gt = tf(eval(sysStrGt));
+% Gv(s)
+numGv = get(cLLoadDataWnd.numGv, 'string');
+denGv = get(cLLoadDataWnd.denGv, 'string');
+sysStrGv = strcat('(',numGv,')', '/','(', denGv,')');
+Gv = tf(eval(sysStrGv));
+% Gc(s)
+numGcomp = get(cLLoadDataWnd.numGcomp, 'string');
+denGcomp = get(cLLoadDataWnd.denGcomp, 'string');
+sysStrGcomp = strcat('(',numGcomp,')', '/','(', denGcomp,')');
+Gcomp = tf(eval(sysStrGcomp));
+
+% Opcions of radio button: PID controller
+% -----------------------------------------------------------------
+op1 = get(cLLoadDataWnd.PID_rb, 'Value');			% PID
+op2 = get(cLLoadDataWnd.Compensador_rb, 'Value');		% Compensator
+
+
+if ((op1 == 1) &amp;&amp; (op2 == 1))
+  disp('You can not take two options');
+elseif (op1 == 1)
+  %Option 1: PID controller
+  if(get(cLLoadDataWnd.Mode_P,'value') == 1) 
+     % if the options is P mode
+     Kr=str2num(get(cLLoadDataWnd.Kr,'string'));
+   else
+     Kr=0;
+   endif
+  if(get(cLLoadDataWnd.Mode_D,'value') == 1) 
+     % if the options is D mode 
+     TD=str2num(get(cLLoadDataWnd.TD,'string'));;
+   else
+     TD=0;
+  endif
+  if(get(cLLoadDataWnd.Mode_I,'value') == 1) 
+     % if the options is I mode
+     TI=str2num(get(cLLoadDataWnd.TI,'string'));;
+     Gc=Kr+Kr/(TI*s)+Kr*TD*s;
+   else
+     TI=0;
+     Gc=Kr+Kr*TD*s;
+  endif
+ elseif (op2 == 1)
+     %Opction 2:  Compensator
+     Gc = Gcomp;
+     % set Kr=1, to avoid error
+     Kr=1; TI=1; TD=0;
+else
+  disp('You must take an option');
+endif
+
+% G(s)H(s)
+GH=Gp*Gv*Gc*Gm;
+
+% Save data
+tiempo_muerto=0.0;
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadCLdata'],'Gp','Gl','Gm','Gt','Gv','Gc','Gcomp','tiempo_muerto','GH','Kr','TI','TD')
+
+% Close window
+close(cLLoadDataWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gl" Position="[440 110 198 15]" String="Gl(s) = ----------------------------------- " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGl" Position="[485 75 152 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGl" Position="[485 135 147 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_21" Position="[20 50 68 15]" String="Plant" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_22" Position="[20 180 163 15]" String="Measuring Element" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Gm" Position="[20 235 176 17]" String="Gm(s) = ---------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGm" Position="[85 205 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGm" Position="[85 260 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Gt" Position="[220 235 156 15]" String="Gt(s) = --------------------------" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_25" Position="[220 180 141 15]" String="Input Converter" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_26" Position="[435 180 171 15]" String="Final Control Element" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGt" Position="[275 205 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGt" Position="[275 260 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Gv" Position="[435 235 172 15]" String="Gv(s) = -----------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGv" Position="[490 205 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGv" Position="[490 260 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="controlador" Position="[295 310 79 15]" String="Controller" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kr" Position="[120 372 90 22]" String="1.0" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TI" Position="[320 372 90 22]" String="1.0" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TD" Position="[525 372 90 22]" String="0.0" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_32" Position="[10 305 275 18]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Gc" Position="[25 465 181 15]" String="Gc(s) = -------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGcomp" Position="[80 445 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGcomp" Position="[80 490 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_37" Position="[375 305 275 18]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_39" Position="[20 520 691 18]" String="___________________________________________________________________________________" TooltipString=""/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Mode_P" Position="[20 375 86 17]" String="P Mode" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Mode_I" Position="[235 375 74 17]" String="I Mode" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Mode_D" Position="[430 375 79 17]" String="D Mode" TooltipString="" Value="deselect"/>
+    <uiControl class="radioButtonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="PID_rb" Position="[20 335 82 17]" String="PID" TooltipString="" Value="select">  set(dlg.PID_rb, 'Value', 1);
+  set(dlg.Compensador_rb, 'Value', 0);
+</uiControl>
+    <uiControl class="radioButtonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Compensador_rb" Position="[20 420 140 17]" String="Compensator" TooltipString="" Value="deselect">  set(dlg.PID_rb, 'Value', 0);
+  set(dlg.Compensador_rb, 'Value', 1);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_PID" Position="[130 335 190 15]" String="C(s)=Kr(1+1/TIs+TDs)" TooltipString=""/>
+</dialog>

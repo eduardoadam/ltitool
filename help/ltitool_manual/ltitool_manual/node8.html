@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Step response</TITLE>
+<META NAME="description" CONTENT="Step response">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node9.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html213"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html207"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html201"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html211"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html214"
+  HREF="node9.html">Tool Developed for Open</A>
+<B> Up:</B> <A NAME="tex2html208"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html202"
+  HREF="node7.html">Impulse response</A>
+ &nbsp; <B>  <A NAME="tex2html210"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html212"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00420000000000000000"></A><A NAME="357"></A>
+<BR>
+Step response
+</H1>
+
+<P>
+Now, consider the system dynamic response subjected to a step input signal with amplitude <SPAN  CLASS="textit">k</SPAN>.
+
+<P>
+The step temporal expression is, <SPAN  CLASS="textit">u</SPAN>(<SPAN  CLASS="textit">t</SPAN>) = <SPAN  CLASS="textit">kH</SPAN>(<SPAN  CLASS="textit">t</SPAN>) where, <SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">t</SPAN>) is the Heavyside function and therefore, the Laplace transform of <SPAN  CLASS="textit">u</SPAN>(<SPAN  CLASS="textit">t</SPAN>) is <SPAN  CLASS="textit">U</SPAN>(s) = <SPAN  CLASS="textit">k</SPAN>/<SPAN  CLASS="textit">s</SPAN>.  Consequently, the temporal response of the linear system results,
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+y(t) =  \mathscr{L}^{^-1} \left[G(s) \frac{k}{s}  \right]   ~~\mbox{.}
+\end{equation}
+ -->
+<A NAME="Eq08_chp_trans"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="Eq08_chp_trans"></A><IMG
+ WIDTH="159" HEIGHT="54" BORDER="0"
+ SRC="img13.png"
+ ALT="\begin{displaymath}
+y(t) = \mathscr{L}^{^-1} \left[G(s) \frac{k}{s} \right] ~~\mbox{.}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+That is to say:  textit the step response with amplitude <SPAN  CLASS="textit">k</SPAN> of a linear system is equal to the inverse Laplace transform of the transfer function multiplied by <SPAN  CLASS="textit">k</SPAN>/<SPAN  CLASS="textit">s</SPAN>.
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Example 2</SPAN> <A NAME="ejem02_gla_oct"></A>
+<P>
+Consider a linear system of the Exam. <A HREF="node7.html#ejem01_gla_oct">3.1</A> whose transfer function is given by (<A HREF="node7.html#eqn_Gs_ejem01">3.4</A>). Obtain the dynamic response of such system for a step input.
+
+<P>
+<BR>
+<BR>
+Firstly, it is studied
+
+<P>
+<BR>
+<BR>
+	
+<OL>
+<LI><SPAN  CLASS="textbf">Stability:</SPAN> This depends on the roots of the characteristic equation and is not affected by the type of input. Therefore, the system will have a stable open loop dynamic response for the step input.
+</LI>
+<LI><SPAN  CLASS="textbf">Initial and Final Values:</SPAN> They can be determined by IVT and FVT. 
+
+<P>
+For IVT, the following remark is established below.
+
+<P>
+<BR>
+<A NAME="rem03_chp_trans"></A><IMG
+ WIDTH="460" HEIGHT="58" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="\begin{remark}
+\begin{remarca}
+The initial value of the step response of the s...
+...mo}
+See Adam's textbook \cite{Adam2018}, among others.
+\end{demo} \end{remark}">
+<BR>
+
+<P>
+According to Eq. (<A HREF="node7.html#eqn_Gs_ejem01">3.4</A>), it is easy to proof that,
+		<IMG
+ WIDTH="462" HEIGHT="51" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="\begin{equation*}
+y(0^+)= \lim _{s \to 0} s Y(s) = \lim _{s \to 0} s \ G(s)U(s)...
+...s} \frac{(s+1)}{s^2+0.5s+1} \frac{k}{\cancel{s}} = 0 ~~\mbox{.}
+\end{equation*}">
+
+<P>
+For FVT, the following remark is established below.
+
+<P>
+<BR>
+<A NAME="rem04_chp_trans"></A><IMG
+ WIDTH="460" HEIGHT="58" ALIGN="BOTTOM" BORDER="0"
+ SRC="img16.png"
+ ALT="\begin{remark}
+\begin{remarca}
+The final value of the step response of the sel...
+...mo}
+See Adam's textbook \cite{Adam2018}, among others.
+\end{demo} \end{remark}">
+<BR>
+
+<P>
+Where it is denoted as <SPAN  CLASS="textit">k</SPAN> the step amplitude  and <SPAN  CLASS="textit">K</SPAN> to the static gain <A NAME="426"></A> of the open loop plant.
+
+<P>
+<BR>
+<BR>
+According to the FVT and taking into account Eq. (<A HREF="node7.html#eqn_Gs_ejem01">3.4</A>) it is possible to write,
+
+<P>
+<IMG
+ WIDTH="442" HEIGHT="51" ALIGN="BOTTOM" BORDER="0"
+ SRC="img17.png"
+ ALT="\begin{equation*}
+y(\infty)= \lim _{s \to 0} s Y(s) = \lim _{s \to 0} s \ G(s)U...
+...0} \cancel{s} \frac{(s+1)}{s^2+0.5s+1} \frac{k}{\cancel{s}} = k
+\end{equation*}">
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Step response:</SPAN>
+		With the previously determined information, the system dynamic behavior  can be predicted for the amplitude input step <SPAN  CLASS="textit">k</SPAN>. For this example particular, it can be predicted that the system leaves zero (IVT) and reaches a final value equal to <SPAN  CLASS="textit">kK</SPAN> (FVT). In addition, the dynamic response will oscillate around the final value since such system has two complex conjugate roots, according to  previously calculus.
+
+<P>
+In addition, using the Octave command <TT>step</TT> , the dynamic open loop response of the system can be determined, as indicated below.
+
+<P>
+<PRE>
+		% System transfer function
+		s=tf('s');
+		Gs=(s+1)/(s^2+0.5*s+1);
+		
+		% Step response
+		step(Gs)
+</PRE>
+
+<P>
+Thus the Fig. <A HREF="#chp_la_fig03_step">3.3</A> is obtained.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chp_la_fig03_step"></A><A NAME="499"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.3:</STRONG>
+System step response (<A HREF="node7.html#eqn_Gs_ejem01">3.4</A>).</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>			<IMG
+  WIDTH="660" HEIGHT="496" ALIGN="BOTTOM" BORDER="0"
+ SRC="./stepGs_ltitool.png"
+ ALT="Image stepGs_ltitool"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html213"
+  HREF="node9.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html207"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html201"
+  HREF="node7.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html211"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html214"
+  HREF="node9.html">Tool Developed for Open</A>
+<B> Up:</B> <A NAME="tex2html208"
+  HREF="node6.html">Open Loop LTI Systems</A>
+<B> Previous:</B> <A NAME="tex2html202"
+  HREF="node7.html">Impulse response</A>
+ &nbsp; <B>  <A NAME="tex2html210"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html212"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

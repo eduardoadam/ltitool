@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.949 0.949 0.949]" HPosition="center" Name="ghWnd" Position="[0 116 1208 652]" Resize="on" VPosition="top" windowStyle="normal">
+    <GlobalSrc>
+% global variable
+global _ltitoolBasePath;
+
+%------------------------------------------------------------------------------------------------
+% G(s)H(s) image
+axes(ghWnd.Image_GH);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'fig_GH.png']);
+refresh();
+
+%------------------------------------------------------------------------------------------------
+% Load data defined by default
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'])
+%------------------------------------------------------------------------------------------------
+
+% Clear the command window
+clc
+
+%------------------------------------------------------------------------------------------------
+% Show data inside teh window
+set(ghWnd.numGH,'string',polyout(GH.num{1,1}/Kr)); 
+set(ghWnd.denGH,'string',polyout(GH.den{1,1}));
+set(ghWnd.Kr,'string',num2str(Kr));
+set(ghWnd.AmplitudSP,'string',num2str(AmplitudSP));
+set(ghWnd.tFinal,'string',num2str(tFinal));
+%------------------------------------------------------------------------------------------------
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_GH" Position="[19 62 459 171]"/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGH" Position="[593 105 195 23]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGH" Position="[593 165 192 21]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_2" Position="[505 135 276 15]" String="G(s)H(s)/K = ----------------------------------------------" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_3" Position="[813 108 206 15]" String="bm*s^m+......+b1*s^1+b0 " TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_4" Position="[813 162 206 15]" String="an*s^n+.....+a1*s^1+a0 " TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_GHmap" Position="[216 258 137 22]" String=" Zeros-Poles Map " TooltipString="">%
+% Plot zeros-poles map of G(s)H(s)
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Clear figure
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+s = tf('s');
+
+% Read data from main window
+% ------------------------------------------------
+% Data from main window
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+
+% Built GH transfer function
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+GH_Kr = tf(eval(sysStrGH));	% transfer function of G(s)H(s)/Kr
+GH=Kr*GH_Kr;
+
+% ----------------------------------
+% Zeros-Poles map of G(s)H(s)
+% ----------------------------------
+title_string='Zeros and Poles Map of G(s)H(s)';
+legend_ceros_string='Zeros of G(s)H(s)';
+legend_polos_string='Poles of G(s)H(s)';
+
+% Plot zeros-poles map
+% ----------------------------------
+axes(ghWnd.Image_2);
+xpzmap(title_string,legend_ceros_string,legend_polos_string,GH.num{1,1},GH.den{1,1});
+%xpzmap(title_string,legend_ceros_string,legend_polos_string,GH.num{1,1},GH.den{1,1});
+figuraGH=1;
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+
+
+refresh();
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_5" Position="[500 66 261 18]" String="Open Loop Transfer Function" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_infoGH" Position="[20 260 189 18]" String="About G(s)H(s)" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_7" Position="[180 340 136 18]" String="Simulation" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_8" Position="[175 475 215 18]" String="Simulation Parameters " TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_GHstep" Position="[180 374 173 25]" String="Step Response" TooltipString="">%
+% Closed loop system step response
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% clear figure
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+% Complex variable &quot;s&quot;
+s = tf('s');
+
+% Read data from main window
+% ------------------------------------------------
+% Data from main window, G(s)H(s) and Kr
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+
+% Built GH transfer function
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) /Kr
+GH=minreal(Kr*GH_Kr);			% Transfer Funtion G(s)H(s) 
+
+% ----------------------------------
+% Respuesta al Escalon
+% ----------------------------------
+axes(ghWnd.Image_2);
+GHstepresponse(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000);
+hold off
+figuraGH=6;
+
+
+% Additional information for main window
+% ------------------------------------------------------------------------
+[estabilidad,yinf,Test]=additionalinfoFB(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000);
+set(ghWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(ghWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(ghWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+
+% graba datos
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+
+refresh();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_GHimp" Position="[180 415 173 24]" String="Impulse Response" TooltipString="">%
+% Llama a graficar un escalón
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% limpio la figura
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+s = tf('s');
+
+% Funcion de transferencia de LA
+% ------------------------------------------------
+% Num : string del numerador que toma de la ventana principal
+% Den: string del denominador que toma de la ventana princial
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: steo amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+
+% Built GH transfer function
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) 
+GH=minreal(Kr*GH_Kr);			% Transfer Funtion G(s)H(s) 
+
+
+% ----------------------------------
+% Impulse Response
+% ----------------------------------
+axes(ghWnd.Image_2);
+GHimpulseresponse(GH.num{1,1},GH.den{1,1},tFinal,1000);
+hold off
+figuraGH=7;
+
+% Additional information for main window
+% ------------------------------------------------------------------------
+Gcl=minreal(s*GH/(1+GH)); % multiply by s to calculate the impulse response using Gcl(s)
+[estabilidad,yinf,Test]=additionalinfo(Gcl.num{1,1},Gcl.den{1,1},AmplitudSP,tFinal,1000);
+set(ghWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(ghWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+set(ghWnd.valor_final, &quot;String&quot;, num2str(yinf));
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+
+refresh();
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="AmplitudSP" Position="[335 510 57 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_9" Position="[175 513 146 15]" String="SP Step Amplitude =" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_10" Position="[175 549 146 15]" String="Simulation Time =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="tFinal" Position="[335 546 56 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="ayudaLA" Position="[835 595 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node13.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeGH" Position="[1090 595 90 22]" String="Close" TooltipString="">
+  % Cierro la ventana
+  close(ghWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_10" Position="[266 10 825 23]" String="Analysis and Simulation of Closed Loop Systems Based on G(s)H(s)" TooltipString=""/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[448 255 466 314]">disp('Aaahh');
+%imshow('fig_la.png');
+refresh;
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="estabilidad" Position="[965 260 76 15]" String="System:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Test" Position="[965 323 113 15]" String="Settling Time. = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="tiempo_estab_GH" Position="[1092 320 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="y_inf" Position="[965 295 74 15]" String="y(inf) =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="valor_final" Position="[1092 290 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="7" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_15" Position="[965 345 86 11]" String="(Approximate)" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_GHfigs" Position="[915 255 25 22]" String="+" TooltipString="">% global variable
+global _ltitoolBasePath;
+
+% Complex variable s
+s=tf('s');
+
+% load data from the last figure
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'])
+
+if figuraGH==1, % Zeros and poles map of G(s)H(s)
+  figure
+  title_string='Poles and Zeros Map of G(s)H(s)';
+  legend_ceros_string='Zeros of G(s)H(s)';
+  legend_polos_string='Poles of G(s)H(s)';
+  xpzmap(title_string,legend_ceros_string,legend_polos_string,GH.num{1,1},GH.den{1,1});
+  axisx=xlabel('Real Part'); axisy=ylabel('Imaginary Part');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGH=1;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==2, % Zeros and poles map of Glc(s)
+  figure
+  Glc = minreal(GH/(1+GH));  % Closed loop transfer funtion
+  title_string='Poles and Zeros Map of Closed Loop';
+  legend_ceros_string='Closed Loop Zeros';
+  legend_polos_string='Closed Loop Poles';
+  xpzmap(title_string,legend_ceros_string,legend_polos_string,Glc.num{1,1},Glc.den{1,1});
+  axisx=xlabel('Real Part'); axisy=ylabel('Imaginary Part');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGH=2;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==3, % Root locus diagram
+  figure
+  [Kast,Kast_ult,wultimo,GM,w180,PM]=GHrlocusplot(GH.num{1,1},GH.den{1,1},Kr,1000);
+  axisx=xlabel('Real G(s)H(s)'); axisy=ylabel('Imag. G(s)H(s)');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGH=3;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==4, % Bode Diagram
+  figure
+  delay=0;
+  [Kast,Kast_ult,wultimo,GM,wcg,PM]=GHbodeplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+  % rewrite data
+  figuraGH=4;  
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==5, % Nyquist Diagram
+  figure
+  delay=0;
+  [Kast,Kast_ult,wultimo,GM,wcg,PM]=GHnyquistplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+  % rewrite data
+  figuraGH=5;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==6, % Step response
+  % Grafico
+  figure
+  GHstepresponse(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000)
+  axisx=xlabel('Time'); axisy=ylabel('Ouput');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGH=6;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+
+if figuraGH==7, % Impulse response
+  figure
+  GHimpulseresponse(GH.num{1,1},GH.den{1,1},tFinal,1000);
+  axisx=xlabel('Time'); axisy=ylabel('Ouput');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGH=7;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+endif
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="label_Estabilidad" Position="[1056 260 126 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_Kr" Position="[500 205 127 15]" String="Variable Gain, K =" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_analisis" Position="[20 340 111 18]" String="Analysis" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.945 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_RL" Position="[20 375 126 22]" String="Root Locus" TooltipString="">%
+% Plot Root Locus
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Clear figure
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+% Complex variable &quot;s&quot;
+s = tf('s');
+
+% Read data from main window
+% -----------------------------------------------------
+% Data from main window, G(s)H(s) and Kr
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+
+% Built GH transfer function
+GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) /Kr
+GH=Kr*GH_Kr;
+
+% Simulation values
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: amplitud del escalon
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: tiempo de simulacion
+
+% ----------------------------------
+% Root locus plot
+% ----------------------------------
+axes(ghWnd.Image_2);
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHrlocusplot(GH.num{1,1},GH.den{1,1},Kr,1000);
+hold off
+figuraGH=3;
+
+
+% Additional information for main window
+% ------------------------------------------------------------------------
+set(ghWnd.Kasterisco, &quot;String&quot;, num2str(Kast))
+set(ghWnd.Kasterisco_ultimo, &quot;String&quot;, num2str(Kast_ult))
+set(ghWnd.wu, &quot;String&quot;, num2str(wultimo))
+set(ghWnd.gain_margin, &quot;String&quot;, num2str(GM))
+set(ghWnd.w_cg, &quot;String&quot;, num2str(wcg))
+set(ghWnd.phase_margin, &quot;String&quot;, num2str(PM))
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.945 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Bode" Position="[20 416 124 22]" String="Bode" TooltipString="">
+%
+% Bode Plot
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s = tf('s');
+
+% Read data from main window
+% -----------------------------------------------------
+% Data from main window, G(s)H(s) and Kr
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+
+% Built GH transfer function
+GH_Kr = tf(eval(sysStrGH));		% Transfer Funtion G(s)H(s) /Kr
+GH=Kr*GH_Kr;				% Transfer Funtion G(s)H(s) 
+
+% Simulation values
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: amplitud del escalon
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: tiempo de simulacion
+
+% ----------------------------------
+% Bode diagram
+% ----------------------------------
+figure
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHbodeplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+hold off
+figuraGH=4;
+
+% ------------------------------------------------------------------------
+% Additional information for main window
+% ------------------------------------------------------------------------
+set(ghWnd.Kasterisco, &quot;String&quot;, num2str(Kast));
+set(ghWnd.Kasterisco_ultimo, &quot;String&quot;, num2str(Kast_ult));
+set(ghWnd.wu, &quot;String&quot;, num2str(wultimo));
+set(ghWnd.gain_margin, &quot;String&quot;, num2str(GM));
+set(ghWnd.w_cg, &quot;String&quot;, num2str(wcg));
+set(ghWnd.phase_margin, &quot;String&quot;, num2str(PM));
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.945 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Nyquist" Position="[20 455 124 22]" String="Nyquist" TooltipString="">
+%
+% Plot Nyquist
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% clear figure
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+% Complex variable &quot;s&quot;
+s = tf('s');
+
+% Read data from main window
+% -----------------------------------------------------
+% Data from main window, G(s)H(s) and Kr
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+
+% Built GH transfer function
+GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) /Kr
+GH=Kr*GH_Kr;			% Transfer Funtion G(s)H(s)
+
+% Simulation values
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+
+% ----------------------------------
+% Niquist diagram
+% ----------------------------------
+axes(ghWnd.Image_2);
+delay=0;
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=GHnyquistplot(GH.num{1,1},GH.den{1,1},delay,Kr);
+hold off
+figuraGH=5;
+
+% ------------------------------------------------------------------------
+% Additional information for main window
+% ------------------------------------------------------------------------
+set(ghWnd.Kasterisco, &quot;String&quot;, num2str(Kast));
+set(ghWnd.Kasterisco_ultimo, &quot;String&quot;, num2str(Kast_ult));
+set(ghWnd.wu, &quot;String&quot;, num2str(wultimo));
+set(ghWnd.gain_margin, &quot;String&quot;, num2str(GM));
+set(ghWnd.w_cg, &quot;String&quot;, num2str(wcg));
+set(ghWnd.phase_margin, &quot;String&quot;, num2str(PM));
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_infoGlc" Position="[20 295 188 18]" String="About Closed Loop" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.949 0.945 0.941]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_Glcmap" Position="[212 293 139 22]" String=" Zeros-Poles Map " TooltipString="">%
+% Plot zeros-poles map of closed loop function
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Clear figure
+cla(ghWnd.Image_2, &quot;reset&quot;)
+
+s = tf('s');
+
+% Read data from main window
+% ------------------------------------------------
+% Data from main window
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+
+% Built GH transfer function
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+GH_Kr = tf(eval(sysStrGH));	% Funcion de transferencia de G(s)H(s)/Kr
+GH=Kr*GH_Kr;
+
+% Built closed loop transfer function
+Glc = minreal(GH/(1+GH));
+
+% -------------------------------------------------------------------------
+% Zeros-Poles map of closed loop system
+% -------------------------------------------------------------------------
+title_string='Zeros and Poles Map of Closed Loop System';
+legend_ceros_string='Zeros of Gcl(s)';
+legend_polos_string='Poles of Gcl(s)';
+
+% Plot zeros-poles map
+% ----------------------------------
+axes(ghWnd.Image_2);
+xpzmap(title_string,legend_ceros_string,legend_polos_string,Glc.num{1,1},Glc.den{1,1});
+figuraGH=2;
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+
+refresh();
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_19" Position="[965 373 72 15]" String="[K*] = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco" Position="[1092 370 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Kastultimo" Position="[965 410 87 15]" String="[K*u] = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kasterisco_ultimo" Position="[1090 405 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Symbol" FontSize="15" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_omega_u" Position="[965 435 86 27]" String="w       =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wu" Position="[1090 440 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="9" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_sub_u" Position="[980 450 30 17]" String="-180" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_GM" Position="[965 480 84 15]" String="GM = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="gain_margin" Position="[1090 475 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Symbol" FontSize="15" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_omega_180" Position="[965 505 83 27]" String="w   = " TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="9" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_sub_cg" Position="[980 525 30 14]" String="gc" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="w_cg" Position="[1090 510 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_PM" Position="[965 555 86 15]" String="PM  = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="phase_margin" Position="[1090 550 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_infoadicional" Position="[960 225 165 22]" String="Additional Information" TooltipString="">
+%
+% Present adicional information from main window values
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% complex variable &quot;s&quot;
+s = tf('s');
+
+% Read data from main window
+% -----------------------------------------------------
+% Data from main window, G(s)H(s) and Kr
+Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+numGH = get(ghWnd.numGH, 'string');
+denGH = get(ghWnd.denGH, 'string');
+sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+
+% Built GH transfer function
+GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) /Kr
+GH=Kr*GH_Kr;			% Transfer Funtion G(s)H(s) 
+
+% Simulation values
+AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+
+
+% Additional information for main window
+% ------------------------------------------------------------------------
+% Additional information of  dinamic response
+[estabilidad,yinf,Test]=additionalinfoFB(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,1000);
+set(ghWnd.label_Estabilidad, &quot;String&quot;, num2str(estabilidad));
+set(ghWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(ghWnd.tiempo_estab_GH, &quot;String&quot;, num2str(Test));
+
+% Zeros and Poles
+nGH=GH.num{1,1}; dGH=GH.den{1,1};
+[ceros_la, polos_la,KGH]=xzpkdata(nGH,dGH);
+Kasteric=KGH;
+
+% Additional information of frequency  response
+[mGH,pGH,w]=bode(GH);
+% fix the phase wrap arownd
+phaud=pGH;
+phw=unwrap(phaud*pi/180);
+phaud=phw*180/pi;
+% delayed plant phase,
+%phad=phaud + ((-w.*delay)*180/pi)';
+delay=0;
+
+[Kast,Kast_ult,wultimo,GM,wcg,PM]=additionalinfofreq(GH,Kasteric,mGH,phaud,delay,w);
+set(ghWnd.Kasterisco, &quot;String&quot;, num2str(Kast))
+set(ghWnd.Kasterisco_ultimo, &quot;String&quot;, num2str(Kast_ult))
+set(ghWnd.wu, &quot;String&quot;, num2str(wultimo))
+set(ghWnd.gain_margin, &quot;String&quot;, num2str(GM))
+set(ghWnd.w_cg, &quot;String&quot;, num2str(wcg))
+set(ghWnd.phase_margin, &quot;String&quot;, num2str(PM))
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_setdefaultGH" Position="[890 65 199 22]" String="Load Default Values" TooltipString="">
+%
+% Load default values of G(s)H(s)
+%
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s'); 
+
+% Transfer function
+% --------------------------
+GH=0.5/(s*(s^2+s+1));
+Kr=1.25;
+
+% Simulation data
+AmplitudSP=1;
+tFinal=30;
+
+% Figure
+figuraGH=1;
+
+% Save default data
+% ---------------------------
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadGHdata'],'GH','Kr','AmplitudSP','tFinal','figuraGH')
+
+
+% ------------------------------------------------------------------------
+% Reload information to main window
+% ------------------------------------------------------------------------
+set(ghWnd.numGH,'string',polyout(GH.num{1,1}/Kr)); 
+set(ghWnd.denGH,'string',polyout(GH.den{1,1}));
+set(ghWnd.Kr,'string',num2str(Kr));
+set(ghWnd.AmplitudSP,'string',num2str(AmplitudSP));
+set(ghWnd.tFinal,'string',num2str(tFinal));
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_saveGH" Position="[960 595 90 22]" String="Save" TooltipString="">
+% Save data of:
+% 	G(s)H(s) transfer function,
+% 	Set-Point  step response (ysim,tsim)
+% 	Set-Point step amplitud (AmplitudSP)
+% 	Simulation time  (tFinal)
+% 	Settling value (yinf)
+% 	Settling time (Test)
+
+
+[fname, fpath, fltidx] = uiputfile ({'.txt','Archivos de texto';'.m', 'Scripts de octave';'.', 'Todos los archivos'}, 'Abrir archivo. Elija un nombre de archivo para abrir');
+if(fname)
+  % Complex variable &quot;s&quot;
+  s = tf('s');
+
+  % Read data from main window
+  % -----------------------------------------------------
+  % Data from main window, G(s)H(s) and Kr
+  Kr = str2num(get(ghWnd.Kr, 'string'));                  % Kr: controller gain
+  numGH = get(ghWnd.numGH, 'string');
+  denGH = get(ghWnd.denGH, 'string');
+
+  % Built GH transfer function
+  sysStrGH = strcat('(',numGH,')', '/','(', denGH,')');
+  GH_Kr = tf(eval(sysStrGH));	% Transfer Funtion G(s)H(s) /Kr
+  GH=Kr*GH_Kr;			% Transfer Funtion G(s)H(s)
+
+  % Simulation values
+  AmplitudSP = str2num(get(ghWnd.AmplitudSP, 'string'));  % k: step amplitud
+  tFinal = str2num(get(ghWnd.tFinal, 'string'));          % Tf: simulation time
+
+
+  % Simulation and Additional Information
+  % --------------------------------------------------------
+  % Set_Point step response
+  nptos=1000;
+  [estabilidad,yinf,Test,step_tsim,step_ysim]=additionalinfoFB(GH.num{1,1},GH.den{1,1},AmplitudSP,tFinal,nptos);
+
+  % Impulse Response
+  gcl=minreal(feedback(GH));
+  DT=tFinal/nptos;
+  [imp_ysim,imp_tsim]=impulse(gcl, tFinal,DT); 
+
+  % Zeros-poles additional information
+  %GH
+  nGH=GH.num{1,1}; dGH=GH.den{1,1};
+  [zeros_GH, poles_GH,KGH]=xzpkdata(nGH,dGH);
+  % Closed loop
+  Gcl = minreal(GH/(1+GH));
+  [zeros_cl, poles_cl,Kcl]=xzpkdata(Gcl.num{1,1},Gcl.den{1,1});
+
+  % Frequency response additional information
+  Kasteric=KGH;
+  [mGH,pGH,w]=bode(GH);
+  % fix the phase wrap arownd
+  phaud=pGH;
+  phw=unwrap(phaud*pi/180);
+  phaud=phw*180/pi;
+  % delayed plant phase,
+  %phad=phaud + ((-w.*delay)*180/pi)';
+  delay=0;
+  [Kast,Kast_ult,wultimo,GM,wcg,PM]=additionalinfofreq(GH,Kasteric,mGH,phaud,delay,w);
+
+
+  % Save results
+  % --------------------------
+  save([fpath fname], 'GH','Gcl', ...
+       'zeros_GH', 'poles_GH','KGH','zeros_cl', 'poles_cl','Kcl', ...
+       'estabilidad','yinf','Test','tFinal','step_tsim','step_ysim', 'imp_tsim','imp_ysim', ...
+       'AmplitudSP','Kast','Kast_ult','wultimo','GM','wcg','PM');
+else
+  disp('Cancelado');
+endif;
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kr" Position="[630 202 90 22]" String="" TooltipString=""/>
+</dialog>

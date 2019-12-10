@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="acercade.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.7093863"
+     inkscape:cx="404"
+     inkscape:cy="819"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1163"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#e6e6e6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.40000769;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect836"
+       width="189.59999"
+       height="129.59999"
+       x="15.558517"
+       y="15.430671" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="98.67688"
+       y="46.457966"
+       id="text840"><tspan
+         sodipodi:role="line"
+         id="tspan838"
+         x="98.67688"
+         y="46.457966"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332">Creditos</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.39852506;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect842"
+       width="149.60147"
+       height="14.601476"
+       x="35.557777"
+       y="19.788744"
+       ry="7.0119157" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.759964"
+       y="62.173786"
+       id="text846"><tspan
+         sodipodi:role="line"
+         id="tspan844"
+         x="52.759964"
+         y="62.173786"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332">Implementación de comandos de toolbox y GUIs</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.41725"
+       y="73.106529"
+       id="text850"><tspan
+         sodipodi:role="line"
+         id="tspan848"
+         x="110.41725"
+         y="73.106529"
+         style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Dr. Eduardo J. Adam</tspan><tspan
+         sodipodi:role="line"
+         x="110.41725"
+         y="77.957222"
+         style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan858" /><tspan
+         sodipodi:role="line"
+         x="110.41725"
+         y="82.807915"
+         style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan854">eadam.fiq@gmail.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.687717"
+       y="101.34944"
+       id="text862"><tspan
+         sodipodi:role="line"
+         x="25.687717"
+         y="101.34944"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332"
+         id="tspan864">Agradecimiento por colaboracion para implementacion en esta versión</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="110.24586"
+       y="110.2323"
+       id="text870"><tspan
+         sodipodi:role="line"
+         id="tspan868"
+         x="110.24586"
+         y="110.2323"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Ing. Ernesto. S. Burgos</tspan><tspan
+         sodipodi:role="line"
+         x="110.24586"
+         y="115.52396"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan872" /><tspan
+         sodipodi:role="line"
+         x="110.24586"
+         y="120.81564"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan874">sergioburgos@frp.utn.edu.ar</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="19.630205"
+       y="136.21968"
+       id="text878"><tspan
+         sodipodi:role="line"
+         id="tspan876"
+         x="19.630205"
+         y="136.21968"
+         style="stroke-width:0.26458332">Especial agradecimiento a Sergio Burgos quien sin su colaboración y el desarrollo del </tspan><tspan
+         sodipodi:role="line"
+         x="19.630205"
+         y="141.51135"
+         style="stroke-width:0.26458332"
+         id="tspan880">editor de GUI (GUI-Editor) la versión final de este trabajo no hubiese sido posible.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="41.336708"
+       y="28.646666"
+       id="text817"><tspan
+         sodipodi:role="line"
+         id="tspan815"
+         x="41.336708"
+         y="28.646666"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.64444447px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.26458332">Toolbox de Control Lineal para Sistemas LTI</tspan></text>
+  </g>
+</svg>

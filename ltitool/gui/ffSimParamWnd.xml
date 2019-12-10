@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="ffSimParamWnd" Position="[0 391 553 377]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadFFsim'])
+
+% Show data on window
+set(ffSimParamWnd.amplitud_sp,'string',num2str(amplitud_sp));
+set(ffSimParamWnd.T_sp,'string',num2str(T_sp));
+set(ffSimParamWnd.amplitud_l,'string',num2str(amplitud_l));
+set(ffSimParamWnd.T_l,'string',num2str(T_l));
+set(ffSimParamWnd.TFinal,'string',num2str(TFinal));
+set(ffSimParamWnd.Load_change, 'value', haChCarga);
+set(ffSimParamWnd.SP_change, 'value', haChCons);
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_20" Position="[170 25 274 20]" String="Simutation Parameters" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="k_sp" Position="[30 115 108 15]" String="SP Step Amplitude" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="k_l" Position="[295 115 138 17]" String="Load Step Amplitude" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_sp" Position="[175 112 54 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_l" Position="[440 112 49 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_25" Position="[30 153 61 15]" String="Input Time" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_26" Position="[295 153 105 17]" String="Input Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_sp" Position="[175 150 54 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_l" Position="[441 150 48 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_27" Position="[30 215 135 17]" String="Simulation" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_28" Position="[30 250 133 17]" String="Simulation Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TFinal" Position="[175 245 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeFFsimulpaameters" Position="[439 305 90 22]" String="OK" TooltipString="">% global variable
+global _ltitoolBasePath;
+
+% I get the data from the window
+amplitud_sp = eval(get(ffSimParamWnd.amplitud_sp, 'string'));
+T_sp = eval(get(ffSimParamWnd.T_sp, 'string'));
+amplitud_l = eval(get(ffSimParamWnd.amplitud_l, 'string'));
+T_l = eval(get(ffSimParamWnd.T_l, 'string'));
+TFinal = eval(get(ffSimParamWnd.TFinal, 'string'));
+haChCarga = get(ffSimParamWnd.Load_change, 'value');
+haChCons = get(ffSimParamWnd.SP_change, 'value');
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadFFsim'],'T_sp','T_l','TFinal','amplitud_sp','amplitud_l', ...
+                                           'haChCons', 'haChCarga')      
+
+% Close window
+close(ffSimParamWnd.figure);
+</uiControl>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="SP_change" Position="[30 80 194 17]" String="Set-Point Change" TooltipString="" Value="select">  
+disp('SP_change')
+%set(ffSimParamWnd.cambio_SP, 'Value', 1);
+%set(ffSimParamWnd.cambio_SP, 'Value', 0);
+</uiControl>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Load_change" Position="[295 80 174 17]" String="Load Change" TooltipString="" Value="select"/>
+</dialog>

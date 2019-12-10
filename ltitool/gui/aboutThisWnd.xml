@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="aboutThisWnd" Position="[0 196 811 572]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+%
+% Additional tools main window
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Main window image
+axes(aboutThisWnd.aboutthis_Image);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'aboutthis.png']);
+refresh();
+
+% Clear el command Window
+clc
+
+%
+refresh();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</GlobalSrc>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeABOUTTHIS" Position="[650 505 90 22]" String="Close" TooltipString="">
+  % Close window
+  close(aboutThisWnd.figure);</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="aboutthis_Image" Position="[57 26 686 474]">disp('--');
+</uiControl>
+</dialog>

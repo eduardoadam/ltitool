@@ -1,0 +1,2742 @@
+# Created by Octave 4.2.2, Tue Aug 13 18:35:35 2019 -03 <eadam@eduardo-adam>
+# name: Gp1
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 1 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gp2
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 2 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gl1
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 1 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gl2
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 1 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gm1
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gm2
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gt
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Gv
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 0.1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Cint
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: Cext
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: tiempo_muerto
+# type: scalar
+0
+
+
+# name: Krint
+# type: scalar
+5
+
+
+# name: Krext
+# type: scalar
+1
+
+
+# name: GHint
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 0.2 2.1 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+
+# name: GHext
+# type: class
+# classname: tf
+# length: 5
+# name: den
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 6
+ 1 11.50000000000001 41.50000000000007 40.50000000000007 30.00000000000006 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: inv
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: bool
+0
+
+
+
+
+
+# name: lti
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: lti
+# length: 8
+# name: ingroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: inname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: name
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+# name: notes
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 0
+# columns: 0
+
+
+
+
+
+# name: outgroup
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar struct
+# ndims: 2
+ 1 1
+# length: 0
+
+
+
+
+
+# name: outname
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_string
+# elements: 0
+
+
+
+
+
+
+
+
+# name: tsam
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+0
+
+
+
+
+
+# name: userdata
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: null_matrix
+# rows: 0
+# columns: 0
+
+
+
+
+
+
+
+
+
+
+# name: num
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: class
+# classname: tfpoly
+# length: 1
+# name: poly
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: matrix
+# rows: 1
+# columns: 3
+ 25 49.99999999999999 25
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: tfvar
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: string
+# elements: 1
+# length: 1
+s
+
+
+
+
+
+
+

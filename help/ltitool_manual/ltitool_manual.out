@@ -1,0 +1,25 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Installation Mode}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Installing for the First Time}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Updating the Version}{chapter.2}% 4
+\BOOKMARK [0][-]{chapter.3}{Open Loop LTI Systems}{}% 5
+\BOOKMARK [1][-]{section.3.1}{Impulse response}{chapter.3}% 6
+\BOOKMARK [1][-]{section.3.2}{Step response}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.3}{Tool Developed for Open Loop Systems}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.4}{Conclusions}{chapter.3}% 9
+\BOOKMARK [0][-]{chapter.4}{Closed Loop LTI Systems}{}% 10
+\BOOKMARK [1][-]{section.4.1}{Tools for Feedback LTI Systems}{chapter.4}% 11
+\BOOKMARK [2][-]{subsection.4.1.1}{Analysis and Simulation Based on G\(s\)H\(s\)}{section.4.1}% 12
+\BOOKMARK [2][-]{subsection.4.1.2}{Analysis and Simulation of Feedback System}{section.4.1}% 13
+\BOOKMARK [1][-]{section.4.2}{Conclusions}{chapter.4}% 14
+\BOOKMARK [0][-]{chapter.5}{Traditional Advanced Control Strategies}{}% 15
+\BOOKMARK [1][-]{section.5.1}{Feedforward-Feedback Control}{chapter.5}% 16
+\BOOKMARK [1][-]{section.5.2}{Cascade Control}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.3}{Tools for Traditional Advanced Control Strategies}{chapter.5}% 18
+\BOOKMARK [2][-]{subsection.5.3.1}{Analysis and Simulation of a Feedforward-Feedback Control System}{section.5.3}% 19
+\BOOKMARK [2][-]{subsection.5.3.2}{Analysis and Simulation of a Cascade Control System}{section.5.3}% 20
+\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Additional Tools for LTI System Control}{}% 22
+\BOOKMARK [1][-]{section.6.1}{Optimal Setting of PID Controller}{chapter.6}% 23
+\BOOKMARK [1][-]{section.6.2}{Developed Additional Tools}{chapter.6}% 24
+\BOOKMARK [2][-]{subsection.6.2.1}{PID Optimal Controller Setting}{section.6.2}% 25

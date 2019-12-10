@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.922 0.906]" HPosition="center" Name="oLWnd" Position="[0 148 1116 620]" Resize="on" VPosition="top" windowStyle="normal">
+    <GlobalSrc>
+% global variable
+global _ltitoolBasePath;
+
+% Open loop image
+axes(oLWnd.Image_GOL);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'fig_OL.png']);
+refresh();
+
+%------------------------------------------------------------------------------------------------
+%  Load data defined by default
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'])
+%------------------------------------------------------------------------------------------------
+
+% Clear the command Window
+clc
+
+%------------------------------------------------------------------------------------------------
+% Show data inside teh window
+set(oLWnd.numGLA,'string',polyout(GLA.num{1,1})); 
+set(oLWnd.denGLA,'string',polyout(GLA.den{1,1}));
+set(oLWnd.amplitud_k,'string',num2str(k));
+set(oLWnd.tFinal,'string',num2str(tFinal));
+%------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_GOL" Position="[19 51 529 216]"/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGLA" Position="[573 115 195 23]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGLA" Position="[573 170 192 21]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Label_2" Position="[530 145 243 15]" String="G(s) = -----------------------------------------------" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_3" Position="[798 118 189 15]" String="bm*s^m+......+b1*s^1+b0" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_4" Position="[798 172 192 15]" String="an*s^n+.....+a1*s^1+a0" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_ZPmap" Position="[25 300 173 22]" String="Poles and Zeros Map" TooltipString="">%
+% Zeros and poles map plot
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% s-variable is defined
+s = tf('s');
+
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+% Open Loop transfer function, GLA(s)
+numGLA = get(oLWnd.numGLA, 'string');
+denGLA = get(oLWnd.denGLA, 'string');
+sysStrGLA = strcat('(',numGLA,')', '/','(', denGLA,')');
+GLA = tf(eval(sysStrGLA));	% Funcion de transferencia de lazo abierto
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+k = str2num(get(oLWnd.amplitud_k, 'string'));  % k: amplitud del escalon
+tFinal = str2num(get(oLWnd.tFinal, 'string')); % Tf: tiempo de simulacion
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+
+% ----------------------------------
+% Zeros and poles map
+% ----------------------------------
+title_string='Poles and Zeros Map of G(s)';
+legend_ceros_string='Zeros of G(s)';
+legend_polos_string='Poles of G(s)';
+
+% Plot
+% ----------------------------------
+axes(oLWnd.Image_2);
+xpzmap(title_string,legend_ceros_string,legend_polos_string,GLA.num{1,1},GLA.den{1,1});
+figuraGLA=1;
+
+% Stability analysis
+% --------------------------------
+[stability,yinf,Test]=additionalinfo(GLA.num{1,1},GLA.den{1,1},tFinal,1000);
+set(oLWnd.label_EstabilidadGLA, &quot;String&quot;, num2str(stability));
+set(oLWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(oLWnd.tiempo_estab, &quot;String&quot;, num2str(Test));
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+
+refresh();
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_5" Position="[535 65 292 18]" String="Open Loop Transfer Function:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_6" Position="[20 273 247 18]" String="Information about G(s):" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_7" Position="[20 340 122 18]" String="Simulation:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_8" Position="[20 440 234 18]" String="Simulation Parameters:" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLstep" Position="[25 369 173 25]" String="Step Response" TooltipString="">%
+% Step response is ploted
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% s-variable is defined
+s=tf('s');
+
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+% Open Loop transfer function, GLA(s)
+numGLA = get(oLWnd.numGLA, 'string');
+denGLA = get(oLWnd.denGLA, 'string');
+sysStrGLA = strcat('(',numGLA,')', '/','(', denGLA,')');
+GLA = tf(eval(sysStrGLA));	% open loop transfer function GLA(s)
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+k = str2num(get(oLWnd.amplitud_k, 'string'));  % k: step amplitud
+tFinal = str2num(get(oLWnd.tFinal, 'string')); % Tf: imulation time
+% ---------------------------------------------------------------------------------------------------------------------------------------------
+
+% Plot
+% ----------------------------------
+axes(oLWnd.Image_2);
+OLstepresponse(GLA.num{1,1},GLA.den{1,1},k,0.0,tFinal,1000);
+figuraGLA=2;
+
+% Stability analysis
+% --------------------------------
+[stability,yinf,Test]=additionalinfo(GLA.num{1,1},GLA.den{1,1},tFinal,1000);
+yinf=yinf*k;
+set(oLWnd.label_EstabilidadGLA, &quot;String&quot;, num2str(stability));
+set(oLWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(oLWnd.tiempo_estab, &quot;String&quot;, num2str(Test));
+
+
+% Save data
+% --------------------------------
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+
+%
+refresh();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLimp" Position="[25 405 173 24]" String="Impulse Response" TooltipString="">%
+% Impulse response is ploted
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% s-variable is defined
+s=tf('s');
+
+% Numerator and denominator of open loop transfer function GLA(s)
+numGLA = get(oLWnd.numGLA, 'string');
+denGLA = get(oLWnd.denGLA, 'string');
+sysStrGLA = strcat('(',numGLA,')', '/','(', denGLA,')');
+GLA = tf(eval(sysStrGLA));	% open loop transfer function GLA(s)
+% ------------------------------------------------
+k = str2num(get(oLWnd.amplitud_k, 'string'));  % k: step amplitud
+tFinal = str2num(get(oLWnd.tFinal, 'string')); % Tf: simulation time
+
+% Plot impulse response
+% ----------------------------------
+axes(oLWnd.Image_2);
+OLimpulseresponse(GLA.num{1,1},GLA.den{1,1},0.0,tFinal,1000);
+hold off
+figuraGLA=3;
+
+
+% Stability analisis 
+% --------------------------------
+sGLA=minreal(s*GLA); % multiply by s to calculate the impulse response
+[stability,yinf,Test]=additionalinfo(sGLA.num{1,1},sGLA.den{1,1},tFinal,1000);
+set(oLWnd.label_EstabilidadGLA, &quot;String&quot;, num2str(stability));
+set(oLWnd.valor_final, &quot;String&quot;, num2str(yinf));
+set(oLWnd.tiempo_estab, &quot;String&quot;, num2str(Test));
+
+
+% Save data
+% --------------------------------
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+
+refresh();
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[0.953 0.953 0.953]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_k" Position="[180 475 49 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_9" Position="[25 478 136 15]" String="Step Amplitude =" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_10" Position="[25 509 141 15]" String="Simulation Time =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[0.953 0.953 0.953]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="tFinal" Position="[180 506 50 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLhelp" Position="[782 565 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node9.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLclose" Position="[997 565 90 22]" String="Close" TooltipString="">
+  % Cierro la ventana
+  close(oLWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" HorizontalAlignment="left" isAutoSize="false" Name="Label_10" Position="[19 10 634 24]" String="Analysis and Simulation of Open Loop Systems" TooltipString=""/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_2" Position="[311 297 534 231]">imshow('fig_la.png');
+refresh;
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Info" Position="[885 295 188 15]" String="Additional Information:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="sistema" Position="[875 338 74 15]" String="System:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Test" Position="[875 420 118 15]" String="Settling Time. = " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[0.953 0.953 0.953]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="tiempo_estab" Position="[1002 415 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="y_inf" Position="[875 380 68 15]" String="y(inf) =" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[0.953 0.953 0.953]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="valor_final" Position="[955 375 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="7" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_15" Position="[875 445 85 11]" String="(Approximated)" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.949 0.949 0.949]" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="label_Estabilidad" Position="[955 335 0 17]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLfig" Position="[845 295 25 22]" String="+" TooltipString="">
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s');
+
+% Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'])
+
+if figuraGLA==1,
+  figure
+  title_string='Poles and Zeros Map of G(s)';
+  legend_ceros_string='Zeros of G(s)';
+  legend_polos_string='Poles of G(s)';
+  xpzmap(title_string,legend_ceros_string,legend_polos_string,GLA.num{1,1},GLA.den{1,1});
+  axisx=xlabel('Real Part'); axisy=ylabel('Imaginary Part');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGLA=1;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+endif
+if figuraGLA==2,
+  figure
+  OLstepresponse(GLA.num{1,1},GLA.den{1,1},k,0.0,tFinal,1000);
+  axisx=xlabel('Time'); axisy=ylabel('Outup Variable');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGLA=2;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+endif
+if figuraGLA==3,
+  figure
+  OLimpulseresponse(GLA.num{1,1},GLA.den{1,1},0.0,tFinal,1000);
+  axisx=xlabel('Time'); axisy=ylabel('Outup Variable');
+  set(axisx,'fontsize',14);  
+  set(axisy,'fontsize',14);  
+  % rewrite data
+  figuraGLA=3;
+  % Save data
+  save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+end
+</uiControl>
+    <uiControl class="editCtrl" BackgroundColor="[0.953 0.953 0.953]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="label_EstabilidadGLA" Position="[955 335 147 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLsave" Position="[890 565 90 22]" String="Save" TooltipString="">
+% Save data of:
+% 	Transfer function,
+% 	Step response,
+% 	Impulse response,
+% 	Step amplitud
+% 	Simulation time
+% 	Final value of step response 
+% 	Tiempo de establecimiento
+
+
+[fname, fpath, fltidx] = uiputfile ({'.txt','Archivos de texto';'.m', 'Scripts de octave';'.', 'Todos los archivos'}, 'Abrir archivo. Elija un nombre de archivo para abrir');
+if(fname)
+  % Complex variable &quot;s&quot;
+  s = tf('s');
+
+  % ---------------------------------------------------------------------------------------------------------------------------------------------
+  % Open loop transfer function, Gol(s)
+  numGLA = get(oLWnd.numGLA, 'string');
+  denGLA = get(oLWnd.denGLA, 'string');
+  sysStrGLA = strcat('(',numGLA,')', '/','(', denGLA,')');
+  GLA = tf(eval(sysStrGLA));
+  % ---------------------------------------------------------------------------------------------------------------------------------------------
+  k = str2num(get(oLWnd.amplitud_k, 'string'));  % k: step amplitud
+  tFinal = str2num(get(oLWnd.tFinal, 'string')); % Tf: simulation time
+  % ---------------------------------------------------------------------------------------------------------------------------------------------
+
+  % Zeros-Poles of Gol(s)
+  Gs=minreal(GLA);
+  polesGs=roots(Gs.den{1,1});
+  zerosGs=roots(Gs.num{1,1});
+
+  % Simulations
+  % --------------------
+  % Step response
+  step_amplitud=k;
+  DT=tFinal/1000;			%Time interval
+  [step_ysim,step_tsim]=step(k*Gs,tFinal,DT);
+  % Impulse response
+  [imp_ysim,imp_tsim]=impulse(Gs,tFinal,DT);
+
+  % Stability analysis
+  % --------------------------------
+  [stability,yinf,Test]=additionalinfo(GLA.num{1,1},GLA.den{1,1},tFinal,1000);
+  yinf=yinf*k;
+  % Save results
+  % --------------------------
+  save([fpath fname], 'Gs', 'polesGs', 'zerosGs', ...
+       'stability', 'yinf', 'Test', 'step_amplitud', 'step_tsim', 'step_ysim', 'imp_ysim', 'imp_tsim');
+
+else
+  disp('Canceled');
+endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_OLsetdefault" Position="[885 65 212 22]" String="Load Set Default Values" TooltipString="">
+%
+% Default data of Gol is saved and loaded on the main window
+%
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s'); 
+
+% Open loop transfer function
+% --------------------------
+GLA=(s+1)/(s^2+0.5*s+1);
+
+% figure flag
+figuraGLA=1;
+
+% Simulation
+k=1;		% step amplitud
+tFinal=20;	% simulation time
+
+% Save data defined as default
+% ---------------------------------------------------
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadOLdata'],'figuraGLA','GLA','k','tFinal')
+
+% ------------------------------------------------------------------------
+% Information is reloaded on the main window
+% ------------------------------------------------------------------------
+set(oLWnd.numGLA,'string',polyout(GLA.num{1,1})); 
+set(oLWnd.denGLA,'string',polyout(GLA.den{1,1}));
+set(oLWnd.amplitud_k,'string',num2str(k));
+set(oLWnd.tFinal,'string',num2str(tFinal));
+</uiControl>
+</dialog>

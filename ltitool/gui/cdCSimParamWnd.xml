@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="cdCSimParamWnd" Position="[0 397 693 371]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>% global variable
+global _ltitoolBasePath;
+
+%  Load data
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim']) 
+
+% Show data on window
+set(cdCSimParamWnd.amplitud_sp,'string',num2str(amplitud_sp));
+set(cdCSimParamWnd.T_sp,'string',num2str(T_sp));
+set(cdCSimParamWnd.amplitud_l1,'string',num2str(amplitud_l1));
+set(cdCSimParamWnd.amplitud_l2,'string',num2str(amplitud_l2));
+set(cdCSimParamWnd.T_l1,'string',num2str(T_l1));
+set(cdCSimParamWnd.T_l2,'string',num2str(T_l2));
+set(cdCSimParamWnd.TFinal,'string',num2str(TFinal));
+set(cdCSimParamWnd.Load_changeL1, 'value', haChCarga1);
+set(cdCSimParamWnd.Load_changeL2, 'value', haChCarga2);
+set(cdCSimParamWnd.SP_change, 'value', haChCons);
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_20" Position="[208 15 299 20]" String="Simutation Parameters" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="k_sp" Position="[20 115 145 17]" String="SP Step Amplitude" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="k_l" Position="[265 115 157 17]" String="Load Step Amplitudes" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_sp" Position="[170 112 54 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_l1" Position="[425 112 49 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_25" Position="[20 153 106 17]" String="Input Time" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_26" Position="[265 153 127 17]" String="Input Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_sp" Position="[170 150 46 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_l1" Position="[426 150 48 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_27" Position="[20 215 142 17]" String="Simulation" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_28" Position="[20 258 132 17]" String="Simulation Time" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TFinal" Position="[165 255 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeCDCsimulpaameters" Position="[579 310 90 22]" String="OK" TooltipString="">% global variable
+global _ltitoolBasePath;
+
+% I get the data from the window
+amplitud_sp = eval(get(cdCSimParamWnd.amplitud_sp, 'string'));
+T_sp = eval(get(cdCSimParamWnd.T_sp, 'string'));
+amplitud_l1 = eval(get(cdCSimParamWnd.amplitud_l1, 'string'));
+amplitud_l2 = eval(get(cdCSimParamWnd.amplitud_l2, 'string'));
+T_l1 = eval(get(cdCSimParamWnd.T_l1, 'string'));
+T_l2 = eval(get(cdCSimParamWnd.T_l2, 'string'));
+TFinal = eval(get(cdCSimParamWnd.TFinal, 'string'));
+haChCarga1 = get(cdCSimParamWnd.Load_changeL1, 'value');
+haChCarga2 = get(cdCSimParamWnd.Load_changeL2, 'value');
+haChCons = get(cdCSimParamWnd.SP_change, 'value');
+
+% Save data
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCsim'],'T_sp','T_l1','T_l2','TFinal', ...
+                                           'amplitud_sp','amplitud_l1','amplitud_l2', ...
+                                           'haChCons','haChCarga1','haChCarga2');
+
+% Close window
+close(cdCSimParamWnd.figure);
+</uiControl>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="SP_change" Position="[20 75 193 17]" String="Set-Point Change" TooltipString="" Value="select">  
+disp('cambio_SP')
+%set(cdCSimParamWnd.cambio_SP, 'Value', 1);
+%set(cdCSimParamWnd.cambio_SP, 'Value', 0);
+</uiControl>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Load_changeL1" Position="[260 75 189 17]" String="Load Change (L1)" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Load_changeL2" Position="[500 75 184 17]" String="Load Change  (L2)" TooltipString="" Value="select"/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="amplitud_l2" Position="[539 112 50 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="T_l2" Position="[540 150 46 22]" String="" TooltipString=""/>
+</dialog>

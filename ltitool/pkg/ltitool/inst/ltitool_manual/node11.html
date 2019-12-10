@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
+<HTML>
+<HEAD>
+<TITLE>Closed Loop LTI Systems</TITLE>
+<META NAME="description" CONTENT="Closed Loop LTI Systems">
+<META NAME="keywords" CONTENT="ltitool_manual">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="ltitool_manual.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="ltitool_manual.html">
+<LINK REL="next" HREF="node12.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html253"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html247"
+  HREF="ltitool_manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html241"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html249"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html251"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html254"
+  HREF="node12.html">Tools for Feedback LTI</A>
+<B> Up:</B> <A NAME="tex2html248"
+  HREF="ltitool_manual.html">ltitool_manual</A>
+<B> Previous:</B> <A NAME="tex2html242"
+  HREF="node10.html">Conclusions</A>
+ &nbsp; <B>  <A NAME="tex2html250"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html252"
+  HREF="node27.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00500000000000000000"></A> <A NAME="lc_chapter"></A>
+<BR>
+Closed Loop LTI Systems
+</H1>
+
+<P>
+Consider the closed loop system given by Fig. <A HREF="#chpCLfig01Gcl">4.1</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="chpCLfig01Gcl"></A><A NAME="687"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.1:</STRONG>
+Closed loop LTI system.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="556" HEIGHT="207" ALIGN="BOTTOM" BORDER="0"
+ SRC="./lazocerrado.png"
+ ALT="Image lazocerrado"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The closed loop system given by Fig. <A HREF="#chpCLfig01Gcl">4.1</A> can be redrawn as presented in Fig. <A HREF="#chp_lc_fig02_GH">4.2</A> for a setpoint change where, according to Adam [<A
+ HREF="node28.html#Adam2018">1</A>, see Chap. 9], if <SPAN CLASS="MATH"><IMG
+ WIDTH="107" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$G_t(s)=G_m(s)$"></SPAN> the feedback system has a similar behavior that a unity feedback system and consequently it is possible to write, <!-- MATH
+ $G(s)=G_p(s)G_v(s)G_m(s)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="181" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$G(s)=G_p(s)G_v(s)G_m(s)$"></SPAN> y <SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>)=<SPAN  CLASS="textit">C</SPAN>(<SPAN  CLASS="textit">s</SPAN>).
+
+<DIV ALIGN="CENTER"><A NAME="chp_lc_fig02_GH"></A><A NAME="699"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.2:</STRONG>
+Closed loop LTI system with unity feedback.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="528" HEIGHT="119" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig_GH.png"
+ ALT="Image fig_GH"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+For the stability study, remember that it must take into account (Adam, [<A
+ HREF="node28.html#Adam2018">1</A>]):
+
+<P>
+<BR>
+<A NAME="teo02_chp_estab"></A><IMG
+ WIDTH="557" HEIGHT="70" ALIGN="BOTTOM" BORDER="0"
+ SRC="img21.png"
+ ALT="\begin{theorem}[Routh-Hurwitz stability Criterion]
+\index{stability!Routh-Hurwit...
+...e terms in the first column of the Routh array have the same sign.
+\end{theorem}">
+<BR>
+
+<P>
+In this toolbox version, two tools have been developed to allow studying of  stability by mean of the root locus and  Bode and Nyquist stability criteria.
+
+<P>
+<BR>
+<BR>
+<SPAN  CLASS="textbf">Example 3.1.</SPAN> <A NAME="ejem01_gh_oct"></A>Firstly, consider a unity feedback system whose transfer function is presented in Fig. <A HREF="#fig01_ejem01_GH">4.3</A>, with a PI controller where <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$K_r$"></SPAN> is a variable gain and <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img23.png"
+ ALT="$T_I=5$"></SPAN>. 
+
+<DIV ALIGN="CENTER"><A NAME="fig01_ejem01_GH"></A><A NAME="713"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.3:</STRONG>
+Unity feedback system given by Exam. 1.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="465" HEIGHT="111" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig_GH_ejem01.png"
+ ALT="Image fig_GH_ejem01"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The open loop transfer function, <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>) results,
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+G(s)H(s)=\frac{K_r\cancel{(5s+1)}}{5s}\frac{2}{\cancel{(5s+1)}(s^2+s+1)}=\frac{K^*}{s(s^2+s+1)}
+\end{equation}
+ -->
+<A NAME="eqn01_ejem01_lc"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eqn01_ejem01_lc"></A><IMG
+ WIDTH="420" HEIGHT="54" BORDER="0"
+ SRC="img24.png"
+ ALT="\begin{displaymath}
+G(s)H(s)=\frac{K_r\cancel{(5s+1)}}{5s}\frac{2}{\cancel{(5s+1)}(s^2+s+1)}=\frac{K^*}{s(s^2+s+1)}
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+where for this particular case <SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$K^*=2K_r/5$"></SPAN>.
+
+<P>
+<BR>
+<BR>
+For this example, the closed loop transfer function results,
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT" CLASS="mathdisplay">
+
+<!-- MATH
+ \begin{equation}
+\frac{Y(s)}{R(s)}=G_{lc}(s)=\frac{G(s)H(s)}{1+G(s)H(s)}=\frac{K^*}{s^3+s^2+s+K^*}.
+\end{equation}
+ -->
+<A NAME="eqn02_ejem01_lc"></A>
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="eqn02_ejem01_lc"></A><IMG
+ WIDTH="363" HEIGHT="55" BORDER="0"
+ SRC="img26.png"
+ ALT="\begin{displaymath}
+\frac{Y(s)}{R(s)}=G_{lc}(s)=\frac{G(s)H(s)}{1+G(s)H(s)}=\frac{K^*}{s^3+s^2+s+K^*}.
+\end{displaymath}"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+To study the stability of the feedback system,  the Routh stability criterion will be apply based on the characteristic equation of feeback loop system.
+
+<P>
+Being the characteristic equation of this example, <!-- MATH
+ $D(s)=s^3+s^2+s+K^*$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="175" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$D(s)=s^3+s^2+s+K^*$"></SPAN> and therefore the Routh array results
+
+<P>
+<IMG
+ WIDTH="116" HEIGHT="93" ALIGN="BOTTOM" BORDER="0"
+ SRC="img28.png"
+ ALT="\begin{equation*}
+\begin{array}{c\vert}
+s^3 \\ s^2 \\ s^1 \\ s^0
+\end{array} ...
+...
+1 &amp; 1 \\
+1 &amp; K^* \\
+1-K^* &amp; 0 \\
+K^* &amp; 0 \\
+\end{array}\end{equation*}">
+
+<P>
+It follows that the system will be <SPAN  CLASS="textit">asymptotically stable</SPAN> if and only if, 0 &lt; <SPAN  CLASS="textit">K</SPAN>* &lt; 1.
+
+<P>
+<BR>
+<BR>
+Now it is pretended to study the initial and final values reached for a step change in the setpoint <SPAN  CLASS="textit">R</SPAN>(<SPAN  CLASS="textit">s</SPAN>) = <SPAN  CLASS="textit">k/s</SPAN>. To do this, applying the initial value theorem (IVT),
+<IMG
+ WIDTH="538" HEIGHT="43" ALIGN="BOTTOM" BORDER="0"
+ SRC="img29.png"
+ ALT="\begin{equation*}
+y(0^+)= \lim _{s \to \infty} s Y(s) = \lim _{s \to \infty} s ...
+...s} \frac{K^*}{s^3+s^2+s+K^*} \frac{k}{\cancel{s}} = 0 ~~\mbox{.}
+\end{equation*}">
+
+<P>
+Then, applying the final value theorem (FVT),
+<IMG
+ WIDTH="480" HEIGHT="51" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.png"
+ ALT="\begin{equation*}
+y(\infty)= \lim _{s \to 0} s Y(s) = \lim _{s \to 0} s \ G_{lc...
+...0} \cancel{s} \frac{K^*}{s^3+s^2+s+K^*} \frac{k}{\cancel{s}} = k
+\end{equation*}">
+
+<P>
+From the results of both theorems it is shown that the system starts from zero and reaches the setpoint value. This result is subject to the system being stable in closed loop; this is, 0 &lt; <SPAN  CLASS="textit">K</SPAN>* &lt; 1.
+
+<P>
+<BR>
+<BR>
+Now adopting <SPAN  CLASS="textit">K*</SPAN> = 0.5 (o sea <SPAN  CLASS="textit">Kr</SPAN> = 1.25) to reach a <SPAN  CLASS="textit">GM</SPAN> = 2, the characteristic closed loop equation results <!-- MATH
+ $D(s)=s^3+s^2+s+0.5$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="174" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$D(s)=s^3+s^2+s+0.5$"></SPAN> presenting three poles in <SPAN CLASS="MATH"><IMG
+ WIDTH="104" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img32.png"
+ ALT="$s_1= -0.64780$"></SPAN> y <!-- MATH
+ $s_{2-3}=-0.17610 \pm j 0.86072$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="199" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img33.png"
+ ALT="$s_{2-3}=-0.17610 \pm j 0.86072$"></SPAN>.
+
+<P>
+Note that both systems do not have zeros.
+
+<P>
+<BR>
+<BR>
+These results can be easily obtained with the Octave commands,
+
+<P>
+<PRE>
+    pkg load control
+    
+	% G(s)H(s) transfer function
+	Kast=0.5;
+	s=tf('s');
+	GH=Kast/(s*(s^2+s+1));
+	
+	% G(s)H(s) Poles-Zeros
+	polesGH=roots(GH.den{1,1})
+	% Closed loop Poles-Zeros
+	Gcl=feedback(GH,1)
+	polesGcl=roots(Glc.den{1,1})
+</PRE>
+
+<P>
+where the answer in the Octave command window is,
+<PRE>
+	polesGH =
+	
+	-0.50000 + 0.86603i
+	-0.50000 - 0.86603i
+	0.00000 + 0.00000i
+	
+	
+	Transfer function 'Glc' from input 'u1' to output ...
+	
+	           0.5
+	y1:  -------------------
+	     s^3 + s^2 + s + 0.5
+	
+	Continuous-time model.
+	polesGcl =
+	
+	-0.17610 + 0.86072i
+	-0.17610 - 0.86072i
+	-0.64780 + 0.00000i
+</PRE>
+
+<P>
+The feedback system step response can be obtained by means of the following Octave command:
+<PRE>
+	% Step response
+	step(Glc)
+</PRE>
+that it shown in Fig. <A HREF="#chp_lc_fig01_step_GH">4.4</A>.
+
+<DIV ALIGN="CENTER"><A NAME="chp_lc_fig01_step_GH"></A><A NAME="916"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.4:</STRONG>
+Unit step response of the feedback system of the Fig. <A HREF="#fig01_ejem01_GH">4.3</A>.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+</DIV>	<IMG
+  WIDTH="459" HEIGHT="345" ALIGN="BOTTOM" BORDER="0"
+ SRC="./fig01_step_lc.png"
+ ALT="Image fig01_step_lc"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html255"
+  HREF="node12.html">Tools for Feedback LTI Systems</A>
+<UL>
+<LI><A NAME="tex2html256"
+  HREF="node13.html">Analysis and Simulation Based on <SPAN  CLASS="textit">G</SPAN>(<SPAN  CLASS="textit">s</SPAN>)<SPAN  CLASS="textit">H</SPAN>(<SPAN  CLASS="textit">s</SPAN>)</A>
+<LI><A NAME="tex2html257"
+  HREF="node14.html">Analysis and Simulation of Feedback System</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html258"
+  HREF="node15.html">Conclusions</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html253"
+  HREF="node12.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html247"
+  HREF="ltitool_manual.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html241"
+  HREF="node10.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html249"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html251"
+  HREF="node27.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html254"
+  HREF="node12.html">Tools for Feedback LTI</A>
+<B> Up:</B> <A NAME="tex2html248"
+  HREF="ltitool_manual.html">ltitool_manual</A>
+<B> Previous:</B> <A NAME="tex2html242"
+  HREF="node10.html">Conclusions</A>
+ &nbsp; <B>  <A NAME="tex2html250"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html252"
+  HREF="node27.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

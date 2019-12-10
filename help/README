@@ -1,0 +1,33 @@
+
+
+CONVERTIR DE .TEX A .HTML
+-------------------------
+
+Paso 1. Instalar latex2html, para ello abrir consola y escribir:
+
+$ sudo apt-get install latex2html
+
+Paso 2: Una vez instalado para convertir escribir:
+
+$ latex2html nombre_archivo.tex
+
+
+Y listo!
+
+
+OTRAS OPCIONES PARA CONVERTIR EL ARCHIVO
+----------------------------------------
+
+$ latex2html -html_version 4.0,latin1,unicode fichero.tex
+
+$ latex2html -html_version 4.0,latin1,unicode -split 0 nombre_archivo.tex
+
+--------------------------------------------------------------------------
+YO ESTOY USANDO:
+----------------
+$ latex2html -html_version 4.0,latin1,unicode ltitool_manual.tex
+--------------------------------------------------------------------------
+
+
+Ver la siguiente referencia:
+https://es.wikibooks.org/wiki/Manual_de_LaTeX/Otros/Exportar_a_otros_formatos

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.961 0.965 0.969]" HPosition="center" Name="cdCLoadDataWnd" Position="[0 70 745 698]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+% global variable
+global _ltitoolBasePath;
+
+%
+% Load predefined data
+% --------------------------------
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'])
+
+% Show transfer function on window
+% Plant:
+set(cdCLoadDataWnd.numGp1,'string',polyout(Gp1.num{1,1})); 
+set(cdCLoadDataWnd.denGp1,'string',polyout(Gp1.den{1,1}));
+set(cdCLoadDataWnd.numGp2,'string',polyout(Gp2.num{1,1})); 
+set(cdCLoadDataWnd.denGp2,'string',polyout(Gp2.den{1,1}));
+set(cdCLoadDataWnd.numGl1,'string',polyout(Gl1.num{1,1}));
+set(cdCLoadDataWnd.denGl1,'string',polyout(Gl1.den{1,1}));
+set(cdCLoadDataWnd.numGl2,'string',polyout(Gl2.num{1,1}));
+set(cdCLoadDataWnd.denGl2,'string',polyout(Gl2.den{1,1}));
+% Measurin elements
+set(cdCLoadDataWnd.numGm1,'string',polyout(Gm1.num{1,1}));
+set(cdCLoadDataWnd.denGm1,'string',polyout(Gm1.den{1,1}));
+set(cdCLoadDataWnd.numGm2,'string',polyout(Gm2.num{1,1}));
+set(cdCLoadDataWnd.denGm2,'string',polyout(Gm2.den{1,1}));
+% Input converter
+set(cdCLoadDataWnd.numGt,'string',polyout(Gt.num{1,1}));
+set(cdCLoadDataWnd.denGt,'string',polyout(Gt.den{1,1}));
+% Final control element
+set(cdCLoadDataWnd.numGv,'string',polyout(Gv.num{1,1}));
+set(cdCLoadDataWnd.denGv,'string',polyout(Gv.den{1,1}));
+% Controllers
+set(cdCLoadDataWnd.numCint,'string',polyout(Cint.num{1,1}));
+set(cdCLoadDataWnd.denCint,'string',polyout(Cint.den{1,1}));
+set(cdCLoadDataWnd.numCext,'string',polyout(Cext.num{1,1}));
+set(cdCLoadDataWnd.denCext,'string',polyout(Cext.den{1,1}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="numGp" Position="[210 83 183 17]" String="bm*s^m+......+b1*s^1+b0 " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGp1" Position="[80 80 120 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gp1" Position="[20 110 194 17]" String="Gp1(s) = ------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGp1" Position="[80 135 120 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="demGp" Position="[210 138 134 15]" String="an*s^n+.....+a1*s^1+a0" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="13" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_31" Position="[140 10 495 20]" String="Transfer Functions of Cascade Control System" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeloaddataCDC" Position="[630 630 90 22]" String="OK" TooltipString="">
+% global variable
+global _ltitoolBasePath;
+
+% Determino las funciones de transferencias
+s=tf('s'); % Defino la variable compleja &quot;s&quot;
+% Funciones de transferencia de la planta
+% Gp1 y Gp2
+numGp1 = get(cdCLoadDataWnd.numGp1, 'string');
+denGp1 = get(cdCLoadDataWnd.denGp1, 'string');
+sysStrGp1 = strcat('(',numGp1,')', '/','(', denGp1,')');
+Gp1 = tf(eval(sysStrGp1));
+numGp2 = get(cdCLoadDataWnd.numGp2, 'string');
+denGp2 = get(cdCLoadDataWnd.denGp2, 'string');
+sysStrGp2 = strcat('(',numGp2,')', '/','(', denGp2,')');
+Gp2 = tf(eval(sysStrGp2));
+% Gl1 y Gl2
+numGl1 = get(cdCLoadDataWnd.numGl1, 'string');
+denGl1 = get(cdCLoadDataWnd.denGl1, 'string');
+sysStrGl1 = strcat('(',numGl1,')', '/','(', denGl1,')');
+Gl1 = tf(eval(sysStrGl1));
+numGl2 = get(cdCLoadDataWnd.numGl2, 'string');
+denGl2 = get(cdCLoadDataWnd.denGl2, 'string');
+sysStrGl2 = strcat('(',numGl2,')', '/','(', denGl2,')');
+Gl2 = tf(eval(sysStrGl2));
+% Funciones de transferencia de los elmentos de medicion
+numGm1 = get(cdCLoadDataWnd.numGm1, 'string');
+denGm1 = get(cdCLoadDataWnd.denGm1, 'string');
+sysStrGm1 = strcat('(',numGm1,')', '/','(', denGm1,')');
+Gm1 = tf(eval(sysStrGm1));
+numGm2 = get(cdCLoadDataWnd.numGm2, 'string');
+denGm2 = get(cdCLoadDataWnd.denGm2, 'string');
+sysStrGm2 = strcat('(',numGm2,')', '/','(', denGm2,')');
+Gm2 = tf(eval(sysStrGm2));
+% Funcion de transferencia del conversor de entrada
+numGt = get(cdCLoadDataWnd.numGt, 'string');
+denGt = get(cdCLoadDataWnd.denGt, 'string');
+sysStrGt = strcat('(',numGt,')', '/','(', denGt,')');
+Gt = tf(eval(sysStrGt));
+% Funcion de transferencia del elemento de control final
+numGv = get(cdCLoadDataWnd.numGv, 'string');
+denGv = get(cdCLoadDataWnd.denGv, 'string');
+sysStrGv = strcat('(',numGv,')', '/','(', denGv,')');
+Gv = tf(eval(sysStrGv));
+% Funcion de transferencia de los controladores
+numCint = get(cdCLoadDataWnd.numCint, 'string');
+denCint = get(cdCLoadDataWnd.denCint, 'string');
+sysStrCint = strcat('(',numCint,')', '/','(', denCint,')');
+Cint = tf(eval(sysStrCint));
+numCext = get(cdCLoadDataWnd.numCext, 'string');
+denCext = get(cdCLoadDataWnd.denCext, 'string');
+sysStrCext = strcat('(',numCext,')', '/','(', denCext,')');
+Cext = tf(eval(sysStrCext));
+
+% G(s)H(s)
+GHint=minreal(Gp2*Gv*Cint*Gm2); Gastint1=minreal(Gp2*Gv*Cint/(1+GHint));
+GHext=minreal(Gp1*Gastint1*Cext*Gm1);
+
+% Calculate  both GHint and GHext gains
+[ceros_la, polos_la,Krint]=xzpkdata(Cint.num,Cint.den);
+[ceros_la, polos_la,Krext]=xzpkdata(Cext.num,Cext.den);
+
+% Save data
+tiempo_muerto=0.0;
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadCDCdata'],'Gp1','Gp2','Gl1','Gl2','Gm1','Gm2','Gt','Gv', ...
+                          'Cint','Cext','tiempo_muerto','Krint','Krext','GHint','GHext');
+
+% Close window
+close(cdCLoadDataWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gl1" Position="[20 205 192 17]" String="Gl1(s) = ------------------------------ " TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGl1" Position="[80 175 127 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGl1" Position="[80 230 127 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_21" Position="[290 50 63 17]" String="Plant" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_22" Position="[20 290 177 17]" String="Measuring Elements" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gm1" Position="[20 345 184 17]" String="Gm1(s) = ---------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGm1" Position="[80 315 121 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGm1" Position="[80 370 123 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gt" Position="[220 345 164 17]" String="Gt(s) = --------------------------" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_25" Position="[220 290 160 17]" String="Input Converter" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_26" Position="[435 290 185 17]" String="Final Control Element" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGt" Position="[265 315 115 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGt" Position="[265 370 113 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gv" Position="[435 345 179 17]" String="Gv(s) = -----------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGv" Position="[490 315 116 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGv" Position="[490 370 111 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="controladores" Position="[270 500 102 17]" String="Controllers" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_32" Position="[10 495 243 17]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Cint" Position="[20 580 198 17]" String="Cint(s) = -------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numCint" Position="[85 555 123 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denCint" Position="[85 600 124 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_37" Position="[385 495 238 15]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_39" Position="[10 635 599 15]" String="___________________________________________________________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="Gm2" Position="[20 435 175 15]" String="Gm2(s) = ---------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGm2" Position="[80 410 119 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGm2" Position="[80 460 117 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Contr_Interno" Position="[15 525 181 17]" String="Internal Controller" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Contr_Externo" Position="[375 525 183 17]" String="External Controller" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Cext" Position="[375 575 202 17]" String="Cext(s) = -------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numCext" Position="[440 555 128 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denCext" Position="[440 600 127 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_24" Position="[10 45 275 18]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_25" Position="[375 45 275 18]" String="_________________________________" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gp2" Position="[415 110 190 17]" String="Gp2(s)= ------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGp2" Position="[470 80 124 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGp2" Position="[470 135 124 20]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Gl2" Position="[416 205 190 17]" String="Gl2(s)= -------------------------------" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGl2" Position="[469 175 126 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGl2" Position="[470 230 124 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.961 0.965 0.969]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_28" Position="[10 260 691 18]" String="___________________________________________________________________________________" TooltipString=""/>
+</dialog>

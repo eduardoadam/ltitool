@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.922 0.906]" HPosition="center" Name="newVersionWnd" Position="[0 484 599 284]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>%
+% The source code writed here will be executed when
+% windows load. Work like 'onLoad' event of other languages.
+%
+
+% global variable
+global _ltitoolBasePath; global _ltitoolImgPath;
+
+% ltitool logo image
+axes(newVersionWnd.ImageLogo);
+imshow([_ltitoolImgPath filesep() 'logoLtitool3.png']);
+refresh();
+
+
+
+</GlobalSrc>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="reportNewVersion" Position="[10 172 195 15]" String="New version is available." TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnDownload" Position="[206 166 179 26]" String="Download from here" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+% Download file
+%url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;ltitool_manual.html&quot;];
+url = [&quot;https://www.dropbox.com/s/48gp4tnvb4sma1i/ltitool.tar.gz?dl=0&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+
+
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnNewVersionClose" Position="[490 220 90 22]" String="Close" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+% Close windown
+close(newVersionWnd.figure);</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnInstallHelp" Position="[331 220 127 22]" String="Installation Help" TooltipString="">%
+% Run presentation to help  for installation as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Download file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node3.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" Name="ImageLogo" Position="[152 20 292 119]"/>
+</dialog>

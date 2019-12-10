@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.922 0.906]" HPosition="center" Name="mainWnd" Position="[0 95 1106 673]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+%
+% LTITOOL main window
+%
+
+% Load packages
+pkg load control;
+pkg load linear-algebra;
+pkg load odepkg;
+pkg load optim;
+pkg load signal;
+pkg load struct;
+
+% Clear command window
+clc
+
+% global variable
+global _ltitoolBasePath; global _ltitoolImgPath;
+
+% Main window image
+axes(mainWnd.Image_ppl);
+imshow([_ltitoolImgPath filesep() 'image_ppl.png']);
+refresh();
+
+% LTITOOL actual version
+ltitoolActualVersion=ver('ltitool').Version;
+
+% Check new version
+[ltitoolNewVersion desc] = checkVersion('http://www.fiq.unl.edu.ar/control/uploads/versionLTITOOL.php');
+
+% Compare LTITOOL versions
+comparisonVersion = strcmp(ltitoolActualVersion,ltitoolNewVersion);
+if (comparisonVersion==0)
+	disp('New version is available.')
+	descActual=['LTITOOL Actual Version: ',ltitoolActualVersion];
+	disp(descActual)
+	descNew=['LTITOOL New Version: ', ltitoolNewVersion];
+	disp(descNew)
+	% ltitool download
+	
+	%disp('Download from here: ')
+	%ltitoolDownload = '&lt;a href = &quot;http://www.fiq.unl.edu.ar/control/index.php?page=software&quot;&gt; ltitool Download&lt;/a&gt;';
+	%disp(ltitoolDownload)
+	% open window
+	newVersionWnd;
+endif
+
+
+
+
+
+
+
+
+</GlobalSrc>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="Image_ppl" Position="[244 33 831 557]"/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnAboutthis" Position="[623 605 90 22]" String="About This" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run main window of additional tools
+%
+
+aboutThisWnd();
+
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnHelp" Position="[795 605 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;ltitool_manual.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btnClose" Position="[983 605 90 22]" String="Close" TooltipString="">
+% Close ltitool windown
+close(mainWnd.figure);
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runOLwindow" Position="[10 85 209 38]" String="Open Loop System Analysis" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run Open Loop window
+%
+
+oLWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runGHwindow" Position="[10 172 208 39]" String="Analysis Based On G(s)H(s)" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run GH analysis window
+%
+
+ghWnd();
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runCLwindow" Position="[9 289 207 35]" String="Close Loop System Analysis" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run Close Loop window
+%
+
+cLWnd();</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runACSwindow" Position="[9 393 209 34]" String="Advanced Control Strategies" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run main window of traditional advanced control strategies
+%
+
+aCSWnd();
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="16" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_188" Position="[354 15 440 25]" String="LTI System Control Toolbox" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runADDITOOLwindow" Position="[9 537 207 35]" String="Additional Control Tools" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+%
+% Run main window of additional tools
+%
+
+addiToolWnd();
+</uiControl>
+</dialog>

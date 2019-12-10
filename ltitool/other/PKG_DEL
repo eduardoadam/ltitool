@@ -1,0 +1,5 @@
+[_dir, _name, _ext] = fileparts( mfilename('fullpathext') );
+rmpath( [_dir filesep() "fcn" ]);
+rmpath( [_dir filesep() "libs" ]);
+rmpath( [_dir filesep() "wnd" ]);
+clear _dir _name _ext

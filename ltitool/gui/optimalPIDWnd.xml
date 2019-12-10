@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.922 0.906]" HPosition="center" Name="optimalPIDWnd" Position="[0 145 848 623]" Resize="on" VPosition="center" windowStyle="normal">
+    <GlobalSrc>
+%
+% OTPIMAL PID CONTROLLER TUNING main window
+%
+
+
+% global variable
+global _ltitoolBasePath;
+
+%------------------------------------------------------------------------------------------------
+% G(s)H(s) image
+axes(optimalPIDWnd.optmPID_image);
+imshow([_ltitoolBasePath filesep() 'img' filesep() 'figoptmPID.png']);
+refresh();
+
+%------------------------------------------------------------------------------------------------
+% Load data defined by default
+load([_ltitoolBasePath filesep() 'data' filesep() 'loadOPTMPIDdata'])
+%------------------------------------------------------------------------------------------------
+
+% Clear the command window
+clc
+
+%------------------------------------------------------------------------------------------------
+% Show data inside teh window
+set(optimalPIDWnd.numGp,'string',polyout(Gp.num{1,1})); 
+set(optimalPIDWnd.denGp,'string',polyout(Gp.den{1,1}));
+set(optimalPIDWnd.Kr,'string',num2str(Kr));
+set(optimalPIDWnd.TI,'string',num2str(TI));
+set(optimalPIDWnd.TD,'string',num2str(TD));
+set(optimalPIDWnd.Kropt,'string',num2str(Kropt));
+set(optimalPIDWnd.TIopt,'string',num2str(TIopt));
+set(optimalPIDWnd.TDopt,'string',num2str(TDopt));
+set(optimalPIDWnd.wITAE,'string',num2str(wITAE));
+set(optimalPIDWnd.wOVS,'string',num2str(wOVS));
+set(optimalPIDWnd.wS,'string',num2str(wS));
+%------------------------------------------------------------------------------------------------
+
+
+</GlobalSrc>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_closeOptimalPID" Position="[726 560 90 22]" String="Close" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor
+
+% Close Optimal PID windown
+close(optimalPIDWnd.figure);
+</uiControl>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="15" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_189" Position="[273 10 556 35]" String="Optimal PID Controller Tuning" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_190" Position="[425 120 307 17]" String="G(s) = ----------------------------------------------" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_191" Position="[420 50 76 17]" String="Plant:" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="numGp" Position="[475 95 190 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="denGp" Position="[470 145 197 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_192" Position="[10 195 601 17]" String="Adopt the parameters of a PID controller and enter its modes" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="PID_label" Position="[10 225 250 15]" String="C(s)=Kr(1+1/TIs+TDs)" TooltipString=""/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Mode_P" Position="[5 275 77 17]" String="P Mode" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="TI" Position="[205 275 74 17]" String="I Mode" TooltipString="" Value="select"/>
+    <uiControl class="checkBoxCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="Mode_D" Position="[400 275 80 17]" String="D Mode" TooltipString="" Value="select"/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kr" Position="[95 272 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TI" Position="[285 272 90 22]" String="" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TD" Position="[490 272 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_194" Position="[5 315 681 17]" String="The optimal controller calculation strongly depends on the initial conditions." TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_195" Position="[5 335 684 17]" String="Be sure to correctly initialize the chosen controller to determine its optimal parameters." TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="11" FontWeight="bold" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Label_196" Position="[5 375 166 17]" String="Weight Functions:" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="W_ITA_label" Position="[180 375 206 17]" String="Minimize ITAE Criterion" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wITAE" Position="[425 372 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="W_OVS_label" Position="[180 410 231 15]" String="Minimize Maximum Overshoot" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wOVS" Position="[425 407 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="W_S_label" Position="[180 450 236 15]" String="Minimize Sensitivity Function" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="wS" Position="[425 447 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="Kr_label" Position="[113 530 26 17]" String="Kr:" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="Kropt" Position="[150 527 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="false" Name="TI_label" Position="[266 530 25 17]" String="TI:" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TIopt" Position="[305 527 90 22]" String="" TooltipString=""/>
+    <uiControl class="textCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" isAutoSize="true" Name="TD_label" Position="[414 530 21 15]" String="TD:" TooltipString=""/>
+    <uiControl class="editCtrl" BackgroundColor="[1.000 1.000 1.000]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" HorizontalAlignment="left" Name="TDopt" Position="[455 527 90 22]" String="" TooltipString=""/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="btn_analysis_otpm" Position="[690 365 129 22]" String="Analysis Tools" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="btn_sim_optm" Position="[690 405 125 22]" String="Simulation" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_help_optm" Position="[485 560 90 22]" String="Help" TooltipString="">
+%
+% Run presentation to help  as html file.
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Load html file
+url = [&quot;file:&quot; _ltitoolBasePath filesep() &quot;ltitool_manual&quot; filesep() &quot;node26.html&quot;];
+
+  if(isunix())
+    system([&quot;xdg-open &quot; url]);
+  elseif (ispc())
+    system([&quot;start &quot; url]);
+  else
+    disp([&quot;I don't know how to open &quot; url &quot; in your os. Sorry!&quot;]);
+  endif;
+</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_runOPTMPID" Position="[5 497 90 22]" String="Optimal PID" TooltipString="">
+%
+% Load default values for optimal PID window
+%
+
+% global variable
+global _ltitoolBasePath;
+
+%------------------------------------------------------------------------------------------------
+% Data from main window
+% Complex variable &quot;s&quot;
+s = tf('s');
+% Built Gp(s) transfer function
+numGp = get(optimalPIDWnd.numGp, 'string');
+denGp = get(optimalPIDWnd.denGp, 'string');
+sysStrGH = strcat('(',numGp,')', '/','(', denGp,')');
+Gp = minreal(tf(eval(sysStrGH)));
+
+% Proposed controller
+Kr = str2num(get(optimalPIDWnd.Kr, 'string'));
+TI = str2num(get(optimalPIDWnd.TI, 'string'));
+TD = str2num(get(optimalPIDWnd.TD, 'string'));
+% Function weight
+wITAE = str2num(get(optimalPIDWnd.wITAE, 'string'));
+wOVS = str2num(get(optimalPIDWnd.wOVS, 'string'));
+wS = str2num(get(optimalPIDWnd.wS, 'string'));
+%------------------------------------------------------------------------------------------------
+
+
+% PROVISORIO !!!!!
+Ts=0.1; tFinal=30
+
+% Global Variables
+global P dt mu_1 mu_2 mu_3
+P=Gp; mu_1=wITAE; mu_2=wOVS; mu_3=wS; dt=Ts;
+
+% Run optimization routine
+scrSize = get(0, &quot;screensize&quot;);
+xPos = (scrSize(3) - 180)/2;
+yPos = (scrSize(4) - 70)/2;
+wh = waitbar(0.3, 'Please be patient', 'Position',[xPos yPos 180 70]);
+[Kropt,TIopt, TDopt]=xoptiPID(Kr,TI,TD,Gp,tFinal,Ts,wITAE,wOVS,wS);
+close(wh); % Close calculating window
+
+% ------------------------------------------------------------------------
+% Reload information to main window
+% ------------------------------------------------------------------------
+set(optimalPIDWnd.Kropt,'string',num2str(Kropt));
+set(optimalPIDWnd.TIopt,'string',num2str(TIopt));
+set(optimalPIDWnd.TDopt,'string',num2str(TDopt));
+% ------------------------------------------------------------------------</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_setdefaultOPTMPID" Position="[668 65 158 22]" String="Load Default Values" TooltipString="">
+%
+% Load default values for optimal PID window
+%
+%
+
+% global variable
+global _ltitoolBasePath;
+
+% Complex variable &quot;s&quot;
+s=tf('s'); 
+
+% Transfer function
+% --------------------------
+Gp=10/(s^3+6*s^2+11*s+6);
+
+% Controllers
+% Proposed controller
+Kr=1.00000; TI=1.00000; TD=0.00000;
+% Optimal controller
+Kropt=1; TIopt=1; TDopt=0;
+
+% Simulation data
+Ts=0.1;     %sample time
+tFinal=10;  %simulation time
+
+% Function weight
+wITAE=1;
+wOVS=10;
+wS=20;
+
+% Save default data
+% ---------------------------
+save([_ltitoolBasePath filesep() 'data' filesep() 'loadOPTMPIDdata'],'Gp','Kr','TI','TD', ...
+                          'Kropt','TIopt','TDopt','Ts','tFinal','wITAE','wOVS','wS')
+
+% ------------------------------------------------------------------------
+% Reload information to main window
+% ------------------------------------------------------------------------
+set(optimalPIDWnd.numGp,'string',polyout(Gp.num{1,1})); 
+set(optimalPIDWnd.denGp,'string',polyout(Gp.den{1,1}));
+set(optimalPIDWnd.Kr,'string',num2str(Kr));
+set(optimalPIDWnd.TI,'string',num2str(TI));
+set(optimalPIDWnd.TD,'string',num2str(TD));
+set(optimalPIDWnd.Kropt,'string',num2str(Kropt));
+set(optimalPIDWnd.TIopt,'string',num2str(TIopt));
+set(optimalPIDWnd.TDopt,'string',num2str(TDopt));
+set(optimalPIDWnd.wITAE,'string',num2str(wITAE));
+set(optimalPIDWnd.wOVS,'string',num2str(wOVS));
+set(optimalPIDWnd.wS,'string',num2str(wS));
+% ------------------------------------------------------------------------
+</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Ubuntu" FontSize="11" FontWeight="normal" Name="optmPID_image" Position="[15 50 395 133]"/>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.922 0.906]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="false" Name="btn_saveOPTMPID" Position="[605 560 90 22]" String="Save" TooltipString="">% This code will be executed when user click the button control.
+% As default, all events are deactivated, to activate must set the
+% propertie 'have callback' from the properties editor</uiControl>
+</dialog>
